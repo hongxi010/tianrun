@@ -1,0 +1,147 @@
+<div class="footer">
+  <div class="pl160 pr160 pt2 pb2 logos"><img src="{CSS_PATH}web/images/logo.png" alt=""></div>
+  <div class="pl160 pr160 pt5 pb5 flex footct">
+      <div class="flex1 footDL">
+          <dl class="flex">
+         {pc:content action="category" catid="48"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+                <dd>
+                    <div class="font18"><a href="">{$s[catname]}</a></div>
+                    <div class="opacity8 font14">
+                  {pc:content action="lists" catid="$s[catid]" num="10" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                        <p><a href="{$e6[url]}">{$e6[title]}</a></p>
+                  {/loop}
+			   {/pc}
+                    </div>
+                </dd>
+	      {/loop}
+	 	{/pc}
+          </dl>
+          <div class="opacity8 font14 mt5 flex youqing">
+            友情链接：
+            <div class="flex1 yqlinks">
+            {pc:content action="lists" catid="281"  order="listorder ASC" moreinfo="1"  return="event6"}
+				{loop $event6 $e6}
+                <a href="{$e6[url]}" target="_blank">{$e6[title]}</a>-
+                {/loop}
+			   {/pc}
+
+            </div>
+            <a class="lookMore" href="javascript:;" rel="nofollow"><span>查看更多</span> <i class="iconfont">&#xe610;</i></a>
+          </div>
+      </div>
+      <div class="ewmCode">
+           <div class="flex flexjt centers">
+      {pc:content action="category" catid="156"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==1} 
+                {pc:content action="lists" catid="$s[catid]" num="3" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+               <div class="code">
+                   <img src="{$e6[thumb]}" alt="">
+                   <div class="pt1 font14">{$e6[title]}</div>
+               </div>
+                  {/loop}
+			   {/pc}
+              {/if}
+	    {/loop}
+	 	{/pc}
+           </div>
+           <div class="font16 pt3 mpt2 opacity8">
+          {pc:content action="category" catid="156"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==2} 
+                {pc:content action="lists" catid="$s[catid]" num="3" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                <div><a href="tel:{$e6[entitle]}">{$e6[title]} ：{$e6[description]}</a></div>
+                   {/loop}
+			   {/pc}
+              {/if}
+	    {/loop}
+	 	{/pc}
+
+           </div>
+           <div class="flex flexBtn pt3 mpt2">
+               <a class="btn" href="../index/register.html"><i class="iconfont">&#xe602;</i> 免费试用</a>
+               <a class="btn" href=""><i class="iconfont">&#xe630;</i> 在线咨询</a>
+           </div>
+      </div>
+  </div>
+</div>
+<div class="footerBot font14">
+   <div class="pl160 pr160 pt2 pb2 flex flexbt">
+             {pc:content action="category" catid="156"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==3} 
+                {pc:content action="lists" catid="$s[catid]" num="3" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+       <div>
+            <a class="pr2" href="{$e6[url]}">{$e6[title]}</a>
+       </div>
+                  {/loop}
+			   {/pc}
+              {/if}
+	    {/loop}
+	 	{/pc}
+
+   </div>
+</div>
+<div class="fixedNav colorlogo">
+    <dl>
+        <dd>
+            <a href="tel:4000-888-888">
+                <i class="iconfont font30">&#xe608;</i>
+                <div class="mfont12">咨询热线</div>
+            </a>
+            <div class="showNav">
+                <div class="font30 text font700">4000-888-888</div>
+            </div>
+        </dd>
+        <dd>
+            <a href="">
+                <i class="iconfont font30">&#xe61d;</i>
+                <div class="mfont12">在线咨询</div>
+            </a>
+        </dd>
+        <dd>
+            <a href="">
+                <i class="iconfont font30">&#xe615;</i>
+                <div class="mfont12">微信咨询</div>
+            </a>
+            <div class="showNav">
+                <img src="{CSS_PATH}web/images/code.jpg" alt="">
+            </div>
+        </dd>
+        <dd>
+            <a href="../index/register.html">
+                <i class="iconfont font30">&#xe680;</i>
+                <div class="mfont12">免费试用</div>
+            </a>
+        </dd>
+        <dd>
+            <a href="javascript:;" onclick="shiyong()">
+                <i class="iconfont font30">&#xe62f;</i>
+                <div class="mfont12">预约演示</div>
+            </a>
+        </dd>
+        <dd class="scrollTos">
+            <a href="javascript:;">
+                <i class="iconfont font30">&#xe609;</i>
+            </a>
+        </dd>
+    </dl>
+</div>
+<script>
+    $(function(){
+        $('.lookMore').click(function(){
+            $(this).toggleClass('on')
+            if($(this).hasClass('on')){
+                $(this).find('span').text('收起更多')
+            }else{
+                $(this).find('span').text('查看更多')
+            }
+            $('.yqlinks').toggleClass('on')
+        })
+    })
+</script>

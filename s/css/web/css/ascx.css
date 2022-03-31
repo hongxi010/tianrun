@@ -1,0 +1,123 @@
+﻿.header{font-size: 16px;line-height: 60px;height: 60px;background: #000;color: #fff;position: fixed;left: 0;right: 0;top: 0;z-index: 20;}
+.header .logo img{height: 25px;}
+.headNav dd{margin: 0 1px;}
+.headNav dd>a{display: block;padding: 0 22px;}
+.navFlex{padding: 0 .1rem;}
+.slideNav{position: absolute;left: 0;right: 0;top: 100%;background: #fff;box-shadow: 0 2px 10px -1px rgba(0,0,0,.1); padding: .1rem;color: #3F4552;line-height: 1.6;display: none;  width: 1300px; margin: auto; max-width: 95%;}
+.slideNav .link>a{display: block;padding: .1rem;border-radius: 5px;}
+.hotFlag{display: inline-block;font-size: 12px;color: #EE7827;background: rgba(238, 120, 39, 0.2);padding: 1px 8px;}
+.newFlag{display: inline-block;font-size: 12px;color: #01AF8A;background: rgba(1, 175, 138, 0.2);;padding: 1px 8px;}
+.slideOL li{width: 23%;margin-right: 2%;}
+.slideOL .tit{border-bottom: 1px solid #eee;max-width: 160px;}
+.slideOL .links>a{padding: .2rem 0 0 0;}
+.slideNav .links .name{padding: 0 0.05rem;}
+.slideNav .links .desc{width: 100%;padding-left: 18px;padding-top: 5px;max-width: 180px;}
+.slideOL2 .links .lin{padding: .1rem .5rem .1rem 0;}
+.slideOL2 li{padding-bottom: .3rem;}
+.slideOL2 li:nth-last-child(1){padding: 0;}
+.headerHt{height: 60px;}
+.testBg{background-size: cover !important;padding: .48rem 0;text-align: center;}
+.testBg .sy{background: #fff;color: #01AF8A;padding: .1rem .6rem;display: inline-block;border-radius: 0.06rem;}
+.pl160{width: 1300px;margin: auto;max-width: 95%;}
+
+.footer {background: #33415b;color: #fff;}
+.ewmCode .code img{width: 1.2rem;}
+.ewmCode .btn{background: #01AF8A;color: #fff;padding: .1rem .3rem;margin-right: .2rem;border-radius: 0.06rem}
+.ewmCode .code{margin: 0 .36rem 0 0}
+.ewmCode .code:nth-last-child(1){margin: 0}
+.footct{border-top: 1px solid #fff;border-color: rgba(255,255,255,.1);}
+.footDL{padding-right: .5rem}
+.footDL dd{width: 24%;padding-right: 1%;}
+.footDL dd p{margin-top: .12rem}
+.yqlinks{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin-right: .1rem}
+.yqlinks.on{white-space: normal}
+.youqing{max-width: 940px;}
+.footerBot{background: #293751;color: #aaa}
+.lookMore a{ color: #00BE95;}
+.lookMore a:hover{ color: #4283FB;}
+.fixedNav{position: fixed;right: 0;top: 50%;transform: translate(0,-50%);-webkit-transform: translate(0,-50%);z-index: 12;box-shadow: 0 0 15px -2px rgba(0,0,0,.1)}
+.fixedNav dd>a{display: block;padding:.08rem .08rem;text-align: center;background: #fff;border-bottom: 1px solid #eee;}
+.fixedNav dd .iconfont{line-height: 1.2;}
+.fixedNav dd>a:hover{background: #01AF8A;color: #fff;}
+.fixedNav dd{position: relative;}
+.fixedNav dd:nth-last-child(1)>a{border: 0}
+.showNav{position: absolute;right: 100%;top: 0;background: #01AF8A;color: #fff;white-space: nowrap;padding: .1rem;margin-right: 1px;display: none}
+.showNav img{min-width: 120px;}
+.showNav .text{padding:0.06rem .1rem}
+.fixedNav dd:hover .showNav{display: block;}
+.nyBanner{height: 4.4rem;background-size: cover !important;overflow: hidden;}
+.nyBanner .bit{font-weight: bold;line-height: 1;margin-bottom: .26rem;}
+.nyBanner .bit2{font-weight: normal;line-height: 1;margin-bottom: 0;}
+
+.nyBanner .bit,.nyBanner .bxt{position: relative;display: inline-block;letter-spacing: 2px;}
+.nyBanner .bit::after{position: absolute;left: 100%;top: 50%;height: 0.05rem;margin-top: -0.025rem;content: '';margin-left: .35rem;width: 4.8rem;background: #fff;}
+.nyBanner .bxt::after{position: absolute;right: 100%;top: 50%;height: 0.05rem;margin-top: -0.025rem;content: '';margin-right: .35rem;width: 4.8rem;background: #fff;}
+.font120{font-size: 1.2rem;}
+
+.alertBox{position: fixed;left: 0;right: 0;top: 0;bottom: 0;z-index: 55;background: rgba(0,0,0,.6);display: none;}
+.alertBox .boxmain{width: 100%;height: 100%;}
+.alertBox .boxct{width: 800px;max-width: 95%;background: #fff;}
+.alertBox .tit{background: #F6F7F8;padding: .1rem .2rem;}
+.alertBox .forms{padding: .25rem;}
+.forms .text{border:1px solid #ededed}
+.forms .text input{padding: .12rem 0;}
+.forms .fmItem{margin:0 0 .2rem 0 ;position: relative;}
+.forms .fmItem label{min-width: 5em;text-align: justify;}
+.forms .fmItem label span{padding-right: 0.06rem;}
+.forms .submitsBtn{display: block;background: #01AF8A;color: #fff;margin: 0;padding: .15rem 0;width: 100%;}
+.colorred{color: #F5564D;}
+
+
+@media only screen and (max-width:1300px) {
+   .header{font-size:14px;}
+.headNav dd>a{padding:0 .26rem}
+}
+
+
+@media only screen and (min-width:1100px) {
+    .headNav dd.on>a{background: #01AF8A;color: #fff;}
+    .headNav dd:hover>a{background: #01AF8A;color: #fff;}
+    .slideNav .link>a:hover{background: #f1f1f1;color: #333;}
+    .slideNav{transform-origin: center top;-webkit-transform-origin: center top;animation: slide .25s linear both;-webkit-animation: slide .25s linear both;}
+    .headNav dd:hover .slideNav{display: block;}
+    .testBg .sy:hover{background: #01AF8A;color: #fff;box-shadow: 0 0 15px -1px rgba(255,255,255,.3)}
+    .ewmCode .btn:hover,.forms .submitsBtn:hover{background: #4283FB}
+
+}
+
+@media only screen and (max-width:1100px) {
+   .navFlex{position: fixed;left: 0;right: 0;top: 50px;bottom: 0;background: #fff;z-index: 18;padding: 0;overflow-y: auto;display: none;}
+   .headNav{display: block;font-size: 14px;}
+   .header{height: 50px;line-height: 50px;color: inherit;}
+   .headNav dd{margin: 0;border-bottom: 1px solid #eee;}
+   .headNav dd>a{padding: 0 15px;line-height: 40px;display: flex;justify-content: space-between;}
+   .headerHt{height: 50px;}
+   .slideNav{display: block;position: static;box-shadow: none;}
+   .slideNav .tit{font-size: 16px;}
+   .slideNav .links .name{font-size: 14px;}
+   .slideNav .links>a img{height: 15px;}
+   .slideOL li{width: 48%;padding-bottom: .2rem;}
+   .slideOL{padding: 0;}
+   .slideOL2 {padding: 0;}
+   .slideNav .link{display: inline-block;}
+   .pl160{padding-left: 2.5%;}
+   .pr160{padding-right:2.5%;}
+   .footct{display: block}
+   .footDL{padding: 0 0 .3rem 0}
+   .footerBot  .flex{display: block;text-align: center}
+   .ewmCode{text-align: center}
+   .ewmCode .code img{min-width: 90px}
+   .ewmCode .flexBtn{justify-content: center;-webkit-justify-content: center;}
+}
+
+@media only screen and (max-width:640px) {
+    .fixedNav dd .mfont12{display: none}
+    .nyBanner{height: 3rem;}
+    .nyBanner .bit::after,.nyBanner .bxt::after{display: none;}
+    .font68{font-size: .48rem;}
+    .nyBanner  .font30{font-size: .3rem;}
+    .nyBanner  .font120{font-size: 1rem;}
+    .nyBanner  .font48{font-size: .36rem;}
+   .zixun {display:none}
+
+}

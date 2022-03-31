@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit" />
+<link rel="canonical" href=""/>
+<meta name="robots" content="all">
+<meta name="referrer" content="always"/>
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="format-detection" content="telephone=yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+<link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+<link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+
+<link rel="stylesheet" href="{CSS_PATH}web/css/rd.css" />
+
+<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+<script src="{CSS_PATH}web/js/include.js"></script>
+<body>
+{template "content","header"}
+
+{pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+{loop $datas $s}
+{if $s[listorder]==1}
+{pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+{loop $event6 $e6}
+<div class="bannerTypeOne">
+    <img src="{$e6[thumb]}" alt="{$e6[title]}">
+
+    <div class="cons animationDH animateRt">
+        <div class="banenrTit autowidth ">
+            <div class="font42 font700 mb3 mt9 colorfff">{$e6[title]}</div>
+            <div class="font18 colorfff height10">{$e6[description]}</div>
+            <div class="publicBtn">
+                <a class="btn mr1" href="../index/register.html">申请注册 <i class="iconfont"></i></a>
+                <a class="btn btn2" href="javascript:;" onClick="shiyong()">免费试用 <i class="iconfont"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+{/loop}
+{/pc}
+{/if}
+{/loop}
+{/pc}
+
+<!--面包屑-->
+<div class="autowidth pb6">
+{template "content","nav_link"}
+</div>
+<!--主体内容-->
+<div class="product">
+    {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+    {loop $datas $s}
+    {if $s[listorder]==2}
+    <!-- 企业与客户沟通的痛点  -->
+    <div class="section_d">
+        <div class="autowidth animationDH animateBt current">
+            {pc:content action="lists" catid="$s[catid]" where="listorder>0" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+            {loop $list $li}
+            <div class="font32 font700 mb6 centers">{$li[title]}</div>
+            {/loop}
+            {/pc}
+            <ul class="flex flexbt centers imglistanimate">
+                {pc:content action="lists" catid="$s[catid]" where="listorder>1" num="3" order="listorder ASC" moreinfo="1"  return="list"}
+                {loop $list $li}
+                <li class=" w31 lib1p2">
+                    <div class="imgbox">
+                        <img src="{$li[thumb]}" alt="{$li[title]}">
+                    </div>
+                    <div class="font18 font700">{$li[title]}</div>
+                    <div class="font14 font400 color3F4552 opacity6">
+                        {$li[description]}
+                    </div>
+                </li>
+                {/loop}
+                {/pc}
+            </ul>
+
+            <div class="publicBtn centers mt6 mb18">
+                <a class="btn mr1" href="">了解更多 <i class="iconfont"></i></a>
+            </div>
+
+            {pc:content action="lists" catid="$s[catid]" where="listorder>4" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+            {loop $list $li}
+            <div class="font32 font700 mb6 centers">{$li[title]}</div>
+
+            <img src="{$li[thumb]}" alt="{$li[title]}">
+
+            <div class="font14 font300 mt3 mb9 color666">
+                {$li[description]}
+            </div>
+            {/loop}
+            {/pc}
+            {pc:content action="lists" catid="$s[catid]" where="listorder>5" num="10" order="listorder ASC" moreinfo="1"  return="list"}
+            {loop $list $li}
+            {if $li[listorder]%2==0}
+            <div class="imgTextMod">
+                {else}
+                <div class="imgTextMod modStateTwo">
+                {/if}
+                <dl>
+                    <dt class="dtImg">
+                        <img src="{$li[thumb]}" alt="{$li[title]}">
+                    </dt>
+                    <dd class="ddText">
+                        <div class="font14 opacity6">{$li[description]}</div>
+
+                        <div class="publicBtn centers mt6">
+                            <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
+                            <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            {/loop}
+            {/pc}
+        </div>
+    </div>
+    {/if}
+        {if $s[listorder]==3}
+        <!-- 精细化线索运营，提高转化率  -->
+        <div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+                {loop $list $li}
+                <div class="font32 font700 mb6 centers">{$li[title]}</div>
+
+                <div class="imgTextMod">
+
+                    <dl>
+                        <dt class="dtImg">
+                            <img src="{$li[thumb]}" alt="{$li[title]}">
+                        </dt>
+                        <dd class="ddText">
+                            <div class="font14 opacity6">
+                                {$li[content]}
+                            </div>
+
+                            <div class="publicBtn centers mt6">
+                                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
+                                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                            </div>
+
+                        </dd>
+                    </dl>
+
+                </div>
+                {/loop}
+                {/pc}
+            </div>
+        </div>
+
+        {/if}
+        {if $s[listorder]==4}
+        <!-- 全面监管规范服务过程 辅助营销促进复购裂变  -->
+        <div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+                {loop $list $li}
+                <div class="font32 font700 mb6 centers">{$li[title]}</div>
+
+                <div class="imgTextMod">
+
+                    <dl>
+                        <dt class="dtImg">
+                            <img src="{$li[thumb]}" alt="{$li[title]}">
+                        </dt>
+                        <dd class="ddText">
+                            <div class="font14 opacity6">
+                                {$li[content]}
+                            </div>
+
+                            <div class="publicBtn centers mt6">
+                                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
+                                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                            </div>
+
+                        </dd>
+                    </dl>
+
+                </div>
+                {/loop}
+                {/pc}
+            </div>
+        </div>
+
+        {/if}
+        {if $s[listorder]==5}
+        <!-- 自动进行客户意向度评分，及时跟进高质量客户  -->
+        <div class="section_d">
+            {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+            {loop $list $li}
+            <div class="autowidth animationDH animateBt">
+
+                <div class="font32 font700 mb6 centers">{$li[title]}</div>
+
+                <div class="imgTextMod">
+
+                    <dl>
+                        <dt class="dtImg">
+                            <img src="{$li[thumb]}" alt="{$li[title]}">
+                        </dt>
+                        <dd class="ddText">
+                            <div class="font14 opacity6">
+                                {$li[content]}
+                            </div>
+
+                            <div class="publicBtn centers mt6">
+                                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
+                                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                            </div>
+
+                        </dd>
+                    </dl>
+
+                </div>
+
+            </div>
+            {/loop}
+            {/pc}
+        </div>
+
+        {/if}
+        {if $s[listorder]==6}
+        <!-- 什么是企微助手？  -->
+        <div class="section_d">
+            {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+            {loop $list $li}
+            <div class="autowidth animationDH animateBt">
+
+                <div class="font32 font700 mb6 centers">{$li[title]}</div>
+
+                <img src="{$li[thumb]}" alt="{$li[title]}">
+
+                <div class="font14 font300 mt3  color666">
+                    {$li[description]}
+                </div>
+
+            </div>
+            {/loop}
+            {/pc}
+        </div>
+
+        {/if}
+        {if $s[listorder]==7}
+        <!-- 自动生成客户标签，帮助企业实现营销自动化  -->
+        <div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+                {loop $list $li}
+                <div class="font32 font700 mb6 centers">{$li[title]}</div>
+
+                <div class="imgTextMod">
+                    <dl>
+                        <dt class="dtImg">
+                            <img src="{$li[thumb]}" alt="{$li[title]}">
+                        </dt>
+                        {/loop}
+                        {/pc}
+                        <dd class="ddText">
+                            {pc:content action="lists" catid="$s[catid]" where="listorder>1" num="2" order="listorder ASC" moreinfo="1"  return="list"}
+                            {loop $list $li}
+                            <div class="font24">{$li[title]}</div>
+                            <div class="font14 opacity6">{$li[description]}</div>
+                            {/loop}
+                            {/pc}
+                            <div class="publicBtn centers mt6">
+                                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
+                                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                            </div>
+
+                        </dd>
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+
+        {/if}
+        {if $s[listorder]==8}
+        <!-- 私域持续内容互动，提升运营效率  -->
+        <div class="section_d">
+            {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+            {loop $list $li}
+            <div class="autowidth animationDH animateBt">
+
+                <div class="font32 font700 mb6 centers">{$li[title]}</div>
+                {/loop}
+                {/pc}
+                {pc:content action="lists" catid="$s[catid]" where="listorder>1" num="2" order="listorder ASC" moreinfo="1"  return="list"}
+                {loop $list $li}
+                {if $li[listorder]%2==0}
+                <div class="imgTextMod">
+                    {else}
+                    <div class="imgTextMod modStateTwo">
+                    {/if}
+                    <dl>
+                        <dt class="dtImg">
+                            <img src="{$li[thumb]}" alt="{$li[title]}">
+                        </dt>
+                        <dd class="ddText">
+                            <div class="font24">{$li[title]}</div>
+                            <div class="font14 opacity6">
+                                {$li[description]}
+                            </div>
+
+
+                            <div class="publicBtn centers mt6">
+                                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
+                                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                            </div>
+
+                        </dd>
+                    </dl>
+
+
+                </div>
+                {/loop}
+                {/pc}
+
+            </div>
+
+        </div>
+
+        {/if}
+        {if $s[listorder]==9}
+
+        <!-- 自动生成客户标签，帮助企业实现营销自动化  -->
+        <div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+                {loop $list $li}
+                <div class="font32 font700 mb6 centers">更多亮点功能</div>
+                {/loop}
+                {/pc}
+                <ul class="flex flexwp flexbt pd16">
+                    {pc:content action="lists" catid="$s[catid]" where="listorder>1" num="20" order="listorder ASC" moreinfo="1"  return="list"}
+                    {loop $list $li}
+                    <li class="w31 flex flexjt  flexat height52 bgfff mb3">
+                        <img class="wt18 mr1" src=".{$li[thumb]}" alt="{$li[title]}">
+                        <div>{$li[title]}</div>
+                    </li>
+                    {/loop}
+                    {/pc}
+
+                </ul>
+
+            </div>
+        </div>
+
+        {/if}
+    {/loop}
+        {/pc}
+    </div>
+
+
+{template "content","pro_nav"}
+{template "content","footer"}
+<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+<script type="text/javascript" src="{CSS_PATH}web/js/rd.js" ></script>
+</body>
+</html>

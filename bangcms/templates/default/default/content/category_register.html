@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+    <link rel="canonical" href=""/>
+    <meta name="robots" content="all">
+    <meta name="referrer" content="always"/>
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    
+	<meta name="format-detection" content="telephone=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+	<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+
+	<body>
+        {template "content","header"}
+        <div class="pl160 pr160">
+            <div class="flex flexat pt6 pb6 zhuceFlex mpt4">
+          {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==1} 
+                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                <div class="zcLeft centers">
+                    <div class="font32 font700">{$e6[title]}</div>
+                    <div class="font18 color888">{$e6[content]}</div>
+                </div>
+                    {/loop}
+			   {/pc}
+              {/if}
+	    {/loop}
+	 	{/pc}
+                <div class="flex1 zhuceForm">
+                    <div class="font32 font700 centers pb1">填写信息，获取免费试用名额</div>
+                    <div class="font16 color888 centers pb2">客服人员会尽快与您取得联系,安排试用</div>
+                    <form class="forms color888">
+                        <div class="flex flexat fmItem">
+                            <label><span class="colorred">*</span>姓   名：</label>
+                            <div class="flex1 flex flexat text">
+                                <i class="iconfont pl1 pr1 font20">&#xe690;</i>
+                                <input class="flex1" placeholder="请输入您的姓名" type="text">
+                            </div>
+                        </div>
+                        <div class="flex flexat fmItem">
+                           <label><span class="colorred">*</span>手机号：</label>
+                           <div class="flex1 flex flexat text">
+                               <i class="iconfont pl1 pr1 font20">&#xe62b;</i>
+                               <input class="flex1" placeholder="请输入您的手机号码" type="text">
+                           </div>
+                       </div>
+                       <div class="flex flexat fmItem">
+                            <label><span class="colorred">*</span>验证码：</label>
+                            <div class="flex1 flex flexat text">
+                                <i class="iconfont pl1 pr1 font20">&#xe624;</i>
+                                <input class="flex1" placeholder="请输入短信验证码" type="text">
+                            </div>
+                            <input class="getCode"  onclick="getCodes()"type="button" value="获取验证码">
+                            <!-- <div class="getCode flex flexat" onclick="getCodes()">获取验证码</div> -->
+                       </div>
+                       <div class="flex flexat fmItem">
+                           <label><span class="colorred">*</span>公   司：</label>
+                           <div class="flex1 flex flexat text">
+                               <i class="iconfont pl1 pr1 font20">&#xe679;</i>
+                               <input class="flex1" placeholder="请输入您的公司名称" type="text">
+                           </div>
+                       </div>
+                       <div class="pb2">
+                           <p>需求类型(可多选)：</p>
+                           <div class="checkList flex flexwp chooseck">
+                               <div class="ck flex flexat"><span class="checkbox"></span> 智能客服</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 呼叫中心</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 客服系统</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 企微SCRM</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 语音机器人</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 文本机器人</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 工单系统</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 智能质检</div>
+                               <div class="ck flex flexat"><span class="checkbox"></span> 预留位置</div>
+                           </div>
+                       </div>
+                       <div class="inputTxt">
+                           <input placeholder="其他需求..." type="text">
+                       </div>
+                       <div class="pt2">
+                           <input class="submitsBtn" type="button" value="立即提交申请">
+                       </div>
+                       <div class="checkList flex flexat pt2">
+                            <div class="ck flex flexat" id="agree"><span class="checkbox"></span> 我已阅读并同意</div>
+                            <a class="colorlogo" href="">《天润融通隐私声明》</a>及<a class="colorlogo" href="">《用户协议》</a>
+                       </div>
+                       <div class="color888 pt2">
+                        我们将尽快联系您，请注意保持电话畅通。<br/>
+                        如您着急对接，也可直接拨打服务热线：1010 9099
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {template "content","footer"}
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+        <script>
+            $('.checkList .ck').click(function(){
+                $(this).toggleClass('on')
+            })
+            var countdown=60;
+            var _generate_code = $(".getCode");
+            function getCodes() {
+            if (countdown == 0) {
+                _generate_code.attr("disabled",false);
+                _generate_code.val("获取验证码");
+                countdown = 60;
+                return false;
+            } else {
+                _generate_code.attr("disabled", true);
+                _generate_code.val("重新发送" + countdown + "s");
+                countdown--;
+            }
+            setTimeout(function() {
+                getCodes();
+            },1000);
+            }
+        </script>
+	</body>
+</html>

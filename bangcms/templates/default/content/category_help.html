@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+    <link rel="canonical" href=""/>
+    <meta name="robots" content="all">
+    <meta name="referrer" content="always"/>
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="format-detection" content="telephone=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+	<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+	<body>
+         {template "content","header"}
+         
+      {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==1} 
+                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+        
+        <div class="nyBanner flex flexat flexjt" style="background: url({$e6[thumb]}) no-repeat center">
+             <div class="bts colorfff centers">
+                 <div class="font40 animationDH animateLt"><div class="bit">{$e6[title]}</div></div>
+                 <div class="font24 animationDH animateRt"><div class="bxt">{$e6[description]}</div></div>
+             </div>
+        </div>
+                  {/loop}
+			   {/pc}
+              {/if}
+	    {/loop}
+	 	{/pc}
+        <div class="autowidth pb6">
+            <dl class="helpTit flex flexat animationDH animateBt">
+         {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==2} 
+                {pc:content action="lists" catid="$s[catid]" num="6" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                     {php $j++} 
+				{if $j<6}
+                <dd>
+                    <a href="{$e6[url]}">
+                        <img class="wt40" src="{$e6[thumb]}" alt="{$e6[title]}">
+                        <div class="font18 font700 pt1">{$e6[title]}</div>
+                        <div class="font14 color666">{$e6[description]}</div>
+                    </a>
+                </dd>
+                {else}
+                 <dd>
+                    <a class="colorlogo font18" href="{$e6[url]}">{$e6[title]}>></a>
+                </dd>
+                {/if}
+                
+                  {/loop}
+			   {/pc}
+              {/if}
+	    {/loop}
+	 	{/pc}
+
+            </dl>
+            
+			{template "content","nav_link_item"}
+            
+            <div class="flex pt4 helpFlex overHidden">
+               <div class="leftNav animationDH animateLt">
+                   <dl>
+           {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+            {if $s[listorder]==3} 
+            
+            {pc:content action="category" catid="$s[catid]"  order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                       <dd class="on">
+                           <span class="flex flexat flex1 oneLevel">
+                               <i class="iconfont font20 pr1">&#xe654;</i>
+                               <div class="font18 pr1">{$e6[catname]}</div>
+                               <i class="iconfont jt">&#xe610;</i>
+                           </span>
+                           <div class="twos pt1 pb1">
+                                <div class="twoLevel">
+                                 {pc:content action="lists" catid="$e6[catid]"  order="listorder ASC" moreinfo="1"  return="event2"}
+									{loop $event2 $e2}
+                                    <span class="flex flexat flex1  pb1">
+                                        <a href="{$CAT[caturl]}#{$e2[id]}" class="font16 pr1">{$e2[title]}</a>
+                                    </span>
+                                  {/loop}
+                               {/pc}
+                                </div>
+                           </div>
+                       </dd>
+                  {/loop}
+			   {/pc}
+               
+              {/if}
+	    {/loop}
+	 	{/pc}
+                   </dl>
+               </div>
+         {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+            {if $s[listorder]==3} 
+               <div class="flex1 font14 detailsTxt color666 animationDH animateRt">
+                   <img src="{CSS_PATH}web/images/a8.jpg" alt="">
+                   <br/><br/>
+                   {pc:content action="category" catid="$s[catid]"  order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                   <p class="font24 color000 pb1">{$e6[catname]}</p>
+                       {pc:content action="lists" catid="$e6[catid]"  order="listorder ASC" moreinfo="1"  return="event2"}
+                         {loop $event2 $e2}
+                           <p class="font18 color000 pt2 pb1" id="{$e2[id]}">{$e2[title]}</p>
+                           <div class="font16 pb2">{$e2[content]}</div>
+                        {/loop}
+                       {/pc}
+ 					{/loop}
+                 {/pc}                
+               </div>
+             {/if}
+	    {/loop}
+	 	{/pc}
+            </div>
+        </div>
+
+        </div>
+         {template "content","footer"}
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+        <script>
+            $(function(){
+                $('.oneLevel .jt').click(function(){
+                    $(this).parents('dd').stop(true,true).toggleClass('on')
+                })
+                $('.twoLevel .jt').click(function(){
+                    $(this).parents('.twoLevel').stop(true,true).toggleClass('on')
+                })
+            })
+        </script>
+	</body>
+</html>

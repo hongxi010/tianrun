@@ -1,0 +1,1 @@
+INSERT INTO `bc_module` (`module`, `name`, `url`, `iscore`, `version`, `description`, `setting`, `listorder`, `disabled`, `installdate`, `updatedate`) VALUES ('tags', 'Tags标签', 'tags/', 0, '1.3', 'Tags标签', '', 0, 0, '2020-02-12', '2020-02-12');

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+	<meta name="keywords" content="{$SEO['keyword']}">
+	<meta name="description" content="{$SEO['description']}"> 
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link href="{CSS_PATH}web/images/favicon.ico" type="image/x-icon" rel="shortcut icon"> 
+	<meta name="format-detection" content="telephone=yes" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+</head>
+<body>
+  {template "content","header"}
+  
+   <div class="mainPage">
+   	   <div class="pageBanner" style="background: url(jiuyea/index/%7BCSS_PATH%7Dweb/images/newBanner.jpg) no-repeat center;">
+   	   	  <div class="txt searchTxt">
+   	   	  	  <div class="searchInput">
+              <form action="{WEB_PATH}cn/Search/" class="header-search" name="search" type="get">
+              <!--
+						<input type="hidden" name="m" value="search"/>
+						<input type="hidden" name="c" value="index"/>
+						<input type="hidden" name="a" value="search_gf_zh"/> 
+						<input type="hidden" name="siteid" value="3"/>
+						-->
+		      <input class="input-key" name="q" placeholder="Search..." type="search" />
+		      	<a class="scBtn bgb" href="javascript:;"><i class="iconfont">&#xe688;</i></a>
+               </form>
+		      </div>
+   	   	  </div>
+   	   </div>
+   	   <div class="autowidth">
+   	   	  <div class="paddingTop4 paddingBot4 txtCenter line12">
+   	   	  	  <div class="font40">搜索结果</div>
+   	   	  	  <p class="font24 colorbbb">Search Result</p>
+              
+              <p>搜索结果：找到关于<font>“{$key}”</font>的结果数约<font>{$total}</font>条</p>	
+              
+   	   	  </div>
+   	   	  <dl class="newsDL">
+          		<?php  foreach($datas as $r){ ?>
+   	   	  	<dd>
+   	   	  		<a href="{$r[url]}">
+   	   	  			<div class="date">
+   	   	  				<p class="font32">17</p>
+   	   	  				<p class="font14">2020.02</p>
+   	   	  			</div>
+   	   	  			<div class="txt">
+   	   	  				<div class="font20 singleTxt"><?php echo str_replace($key,'<font>'.$key.'</font>',$r[title]);?></div>
+   	   	  				<div class="max2 font16 color888"><?php echo str_replace($key,'<font>'.$key.'</font>',$r[title]);?></div>
+   	   	  			</div>
+   	   	  			<div class="ico"><i class="iconfont">&#xe626;</i></div>
+   	   	  		</a>
+   	   	  	</dd>
+<?php }?>
+   	   	  </dl>
+   	   	  <div class="pageStates">
+   	   	  	 <a class="jt" href="javascript:;"><i class="iconfont">&#xe624;</i></a>
+   	   	  	 <a class="on" href="javascript:;">1</a>
+   	   	  	 <a href="javascript:;">2</a>
+   	   	  	 <a href="javascript:;">3</a>
+   	   	  	 <a href="javascript:;">4</a>
+   	   	  	 <a href="javascript:;">5</a>
+   	   	  	 <a href="javascript:;">6</a>
+   	   	  	 <a class="jt" href="javascript:;"><i class="iconfont">&#xe626;</i></a>
+   	   	  </div>
+   	   </div>
+   </div>
+   
+  {template "content","footer"}
+  
+   <script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+   <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script>
+   <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta id="Key" name="Keywords" content="" />
+	<meta id="Des" name="Description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link href="{CSS_PATH}web/images/favicon.ico" type="image/x-icon" rel="shortcut icon"> 
+	<meta name="format-detection" content="telephone=yes" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<script src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+<link href="{CSS_PATH}table_form.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}dialog.css" rel="stylesheet" type="text/css" />
+    <title>在线留言</title>
+	<body>
+		<div class="bannerBg" style="background:url({CSS_PATH}web/images/banners9.jpg) no-repeat center;">
+			{template "content","header"}
+			<div class="bannerHt phoneNoflex flex flexat colorfff">
+				<div class="autowidth  txtCenter font60 fontLighter">在线留言</div>
+			</div>
+		</div>	
+		<div class="pageMain">
+			<div class="autowidth">
+				<div class="mianbao marginBot3">
+					<a href="/">首页</a>
+					<span>&gt;</span>
+					<font class="colorlogo">在线留言</font>
+				</div>
+				<div class="fontLighter font36 txtCenter paddingBot2">联系我们，让沟通更高效</div>
+			</div>
+			<div class="message" style="background: url({CSS_PATH}web/images/g10.jpg) no-repeat center;">
+				<div class="autowidth clearfix">
+					<div class="fr">
+                   
+						<form method="post" action="" name="myform" id="myform" class="msgForm">
+                         <div class="font24">请留下您的联系方式，我们将与您联系洽谈</div>
+<table class="table_form" width="100%" cellspacing="0">
+<tbody>
+ {loop $forminfos_data $field $info}
+	{if $info['formtype']=='omnipotent'}
+		{loop $forminfos_data $_fm $_fm_value}
+			{if $_fm_value['iscomnipotent']}
+				{php $info['form'] = str_replace('{'.$_fm.'}',$_fm_value['form'],$info['form']);}
+			{/if}
+		{/loop}
+	{/if}
+    <tr>
+      <td width="80" class="mt10 mb10 font20">{$info['name']}{if $info['star']} <font color="red">*</font>{/if} </td>
+    </tr>
+	<tr>
+      <td class="textInput">{$info['form']}  {$info['tips']}</td>
+    </tr>
+{/loop}
+	</tbody>
+</table>
+<div class="submitBtn txtCenter mt20"><input type="submit" name="dosubmit" id="dosubmit" value=" 提交 "></div>
+</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		{template "content","footer"}
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+		<script>
+			
+		</script>
+	</body>
+</html>

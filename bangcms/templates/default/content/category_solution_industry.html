@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+    <link rel="canonical" href=""/>
+    <meta name="robots" content="all">
+    <meta name="referrer" content="always"/>
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="format-detection" content="telephone=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+	<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+
+	<body>
+        {template "content","header"}
+        
+      {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==1} 
+                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+        
+        <div class="nyBanner flex flexat flexjt" style="background: url({$e6[thumb]}) no-repeat center">
+             <div class="bts colorfff centers">
+                 <div class="font40 animationDH animateLt"><div class="bit">{$e6[title]}</div></div>
+                 <div class="font24 animationDH animateRt"><div class="bxt">{$e6[description]}</div></div>
+             </div>
+        </div>
+                  {/loop}
+			   {/pc}
+              {/if}
+	    {/loop}
+	 	{/pc}
+        <div class="autowidth pb6">
+		{template "content","nav_link"}
+        
+         {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==2} 
+
+            <div class="animationDH animateBt">
+                <div class="font32 font700 centers pt4 pb2">{$s[catname]}</div>
+                <dl class="hangyeDL flex flexwp flexbt">
+                 {pc:content action="lists" catid="$s[catid]" num="4" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                    <dd>
+                        <img class="wt160" src="{$e6[thumb]}" alt="{$e6[title]}">
+                        <div class="font20 colorlogo font700"> {$e6[title]}</div>
+                        <div class="font18 color666 pt2"> {$e6[content]}</div>
+                    </dd>
+               {/loop}
+			   {/pc}
+                </dl>
+            </div>
+              {/if}
+	    {/loop}
+	 	{/pc} 
+        </div>
+       {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==3} 
+        <div class="bgF6F7F8 pt5 pb5">
+            <div class="autowidth animationDH animateBt">
+              {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                <div class="font32 font700 centers pb2">{$e6[title]}</div>
+
+                <div class="detailsTxt color666">
+   					{$e6[content]}
+                </div>
+
+            </div>
+                 {/loop}
+			   {/pc}
+        </div>
+          {/if}
+	    {/loop}
+	 	{/pc} 
+        <div class="autowidth pt5 pb5 animationDH animateBt">
+        {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==4} 
+            <div class="font32 font700 centers pb2">{$s[catname]}</div>
+            <dl class="flex flexwp flexbt flexthree2 pb3">
+            {pc:content action="lists" catid="$s[catid]" num="4" order="listorder desc" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                <dd>
+                    <a class="scaleImg" href="{$e6[url]}"><img src="{$e6[thumb]}" alt="{$e6[title]}"> </a>
+                    <div class="tit2 font18"> <a href="{$e6[url]}">{$e6[title]}</a></div>
+                   
+                </dd>
+ 					{/loop}
+			   {/pc}
+            </dl>
+            {/if}
+	    {/loop}
+	 	{/pc} 
+        
+        {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==5} 
+            
+         <div class="font32 font700 centers pb2">{$s[catname]}</div>
+            <dl class="flex useprodDL pt2 pb4">
+            {pc:content action="lists" catid="$s[catid]" num="5" order="listorder Asc" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                <dd>
+                   
+                        <img class="wt50" src="{$e6[thumb]}" alt="{$e6[title]}">
+                        <div class="font20 pt1">{$e6[title]}</div>
+                   
+                </dd>
+ 					{/loop}
+			   {/pc}
+            </dl>
+                {/if}
+	    {/loop}
+	 	{/pc}   
+        </div>
+        {template "content","footer"}
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+
+	</body>
+</html>

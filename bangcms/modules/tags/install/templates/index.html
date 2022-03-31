@@ -1,0 +1,40 @@
+{template "content","header"}
+<div class="main">
+<div class="block box animated_element animation-fadeInUp duration-500">
+	<div id="ur_here"> <div class="Navigation">当前位置: <a href="{APP_PATH}">首页</a> <code>&gt;</code> <a>Tag</a> <code>&gt;</code></div> </div>
+</div>
+</div>
+<div class="main newsmain">
+	<div class="inner">
+		<div class="mianleft">
+			<div class="maincontent">
+				<div class="content animated_element animation-fadeInUp duration-500" style=" width:auto; border-bottom:none; padding:20px; margin-bottom:30px; background: #f8f8f8;">
+					<div class="contop">
+						<div class="contopleft" style="width:100%;">
+							<div class="conttitle">
+								<h1><a href="javascript:void(0);" style="text-decoration:none; cursor:text;">Tags</a></h1>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="content animated_element animation-fadeInUp duration-500" style="border-bottom:none;">
+					<div class="contop">
+						<div class="contopleft"{if !$r[thumb]} style="width:100%;"{/if}>
+							<div class="conttitle">
+{loop $tagdata $r}
+{if $r['tag']}
+								<a class="a_tag" href="{get_tagurl($r['tagid'])}" title="{$r['tag']}">{$r['tag']}<span>({$r['usetimes']})</span></a>
+{/if}
+{/loop}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+{template "content","footer"}

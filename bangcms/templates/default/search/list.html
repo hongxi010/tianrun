@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta id="Key" name="Keywords" content="" />
+	<meta id="Des" name="Description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=yes" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+   	<meta name="keywords" content="{$SEO['keyword']}">
+	<meta name="description" content="{$SEO['description']}">
+	<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">-->
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+	<body>
+		{template "content","header"}
+		<div class="nyBanner">
+        {pc:content action="lists" catid="12" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+		   {loop $event6 $e6}
+            <div class="bg" style="background: url({$e6[thumb]}) no-repeat center">
+               <div class="autowidth">
+                    <div class="tit">
+                        <sup class="animationDH animate1"><img class="wt30" src="{CSS_PATH}web/images/c1.png" alt=""></sup>
+                        <span class="font42 font500 animationDH animateBt">搜索</span>
+                        <sub class="animationDH animate2"><img class="wt30" src="{CSS_PATH}web/images/c2.png" alt=""></sub>
+                    </div>
+               </div>
+            </div>
+            {/loop}
+		{/pc}
+            
+        </div>		
+       
+        <div class="autowidth animationDH animateBt pb5 newBg">
+            <div class="flex flexat flexjt pt6 pb5 nyTitles">
+                <img src="{CSS_PATH}web/images/more2.png" alt="">
+                <span class="font36 color06201d font500 pl1 pr1">搜索</span>
+                <img src="{CSS_PATH}web/images/more2.png" alt="">
+            </div>
+            <div class="scwidth">
+             <form class="sousuo flex font18"name="search" type="get">  
+						<i class="iconfont font24">&#xe6b1;</i>
+                        <input type="text" name="q" id="q" value="{$search_q}" class="flex_1" style="border-bottom:1px #999 double;">
+						<input class="btn" type="image" src="{CSS_PATH}web/images/soso.jpg" onClick="document.foormName.reset();return false" style="line-height:60px; height:60px; width:60px;" /> 
+
+                         <input type="hidden" name="m" value="search"/>
+						 <input type="hidden" name="c" value="index"/>
+					     <input type="hidden" name="a" value="init"/>
+					     <input type="hidden" name="typeid" value="2,30,31" id="typeid"/>
+					     <input type="hidden" name="siteid" value="1" id="siteid"/>
+					</form>
+             </div>       
+            <dl class="new1_DL mb3">
+              {loop $data $i $r}
+                <dd class="pb5 ">
+                    <a class="flex flexat flexrev links" href="{$r[url]}" target="_blank" title="{$r[title]}">
+                        <div class="flex_1 txt">
+                            <div class="font18 color666">{date('Y-m-d', $r['inputtime'])}</div>
+                            <div class="font24 tit">{$r[title]}</div>
+                            <div class="max3 color666">{$r[description]}...</div>
+                        </div>
+                    </a>
+                </dd>
+				{/loop}
+            {if empty($data)}未找到结果{/if}
+            </dl>
+            <div class="goPages pt3 pb1 font18">
+               {$pages} 		
+            </div>
+        </div>
+		{template "content","footer"}
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+		
+	</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$title}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+    <link rel="canonical" href=""/>
+    <meta name="robots" content="all">
+    <meta name="referrer" content="always"/>
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+	<meta name="format-detection" content="telephone=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+	<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+    
+
+	<body>
+         {template "content","header"}
+         
+        <div class="nyBanner flex flexat flexjt" style="background: url({CSS_PATH}web/images/bannerBg.jpg) no-repeat center">
+            <div class="bts colorfff centers">
+                <div class="font40 animationDH animateLt"><div class="bit">NEWS</div></div>
+                <div class="font24 animationDH animateRt"><div class="bxt">新闻中心 TIANRUN</div></div>
+            </div>
+        </div>
+        <div class="autowidth position2 pb2">
+            <div class="autoLeft animationDH animateBt">
+                {template "content","nav_link_title"}
+                <div class="pt3">
+                    <h1>{$title}</h1>
+                </div>
+                <div class="pt2 flex font16 color888 flexBlock">
+                    <div class="flex1 color888">
+                        <i class="iconfont">&#xe89d;</i> ：{date('Y-m-d H:i:s',strtotime($inputtime))}
+                        <i class="iconfont pl3">&#xe621;</i>  ：<span id="hits"></span>
+                        <script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+                    </div>
+                    <div>
+                        <span>作者：{$zuozhe}</span>
+                        <span class="pl2">来源：{$comeon}</span>
+                    </div>
+                </div>
+                <div class="detailsTxt font16 color666 line18 pt2">
+                    {$content}	
+                </div>
+                <div class="detailsNext mt3 pt2 font14 pb3">
+                    <div class="singleTxt"><span>上一篇：</span><a href="{$previous_page[url]}">{$previous_page[title]}</a></div>
+                    <div class="singleTxt pt1"><span>下一篇：</span><a href="{$next_page[url]}">{$next_page[title]}</a></div>
+                </div>
+                <div class="font24 font700 pb2">相关推荐</div>
+                <dl class="flex flexwp tjFlex">
+                    <!--
+                {pc:content action="hits" catid="$catid" day="14" num="5" order="weekviews DESC"  moreinfo="1"  return="event6" }
+					{loop $event6 $r}    
+                    <dd>
+                            <div class="scaleImg"><a href="{$r[url]}" title="{$r[title]}" target="_blank"><img class="img_h1" src="{if $r[thumb]}{$r[thumb]}{else}{CSS_PATH}web/images/thumb.jpg{/if}" alt="{$r[title]}"></a></div>
+                            <div class="max2 pt1"><a href="{$r[url]}" target="_blank">{$r[title]}</a></div>
+                    </dd>
+                	{/loop}    
+                {/pc}
+                    -->
+
+                    {pc:get sql="select id from bc_download_data where gl_pro=$id" order by id desc" num="10" return="data" page="$page"}
+
+                    <?php
+                        $ids=[];
+                        foreach($data as $k=>$v){
+                            $ids[] = $v['id'];
+                        }
+                        $ids = implode(',',$ids);
+                    ?>
+
+                    {pc:get sql="select id,title,url,thumb from bc_download where id IN($ids)" num="10" return="data"}
+                    {loop $data $r}
+                    <dd>
+                        <div class="scaleImg"><a href="{$r[url]}" title="{$r[title]}" target="_blank"><img class="img_h1" src="{if $r[thumb]}{$r[thumb]}{else}{CSS_PATH}web/images/thumb.jpg{/if}" alt="{$r[title]}"></a></div>
+                        <div class="max2 pt1"><a href="{$r[url]}" target="_blank">{$r[title]}</a></div>
+                    </dd>
+                    {/loop}
+                    {/pc}
+                </dl>
+            
+            <div class="autoRight animationDH animateRt">
+                <div class="hots">
+                    <div class="font24 font700 pb1">热门标签：</div>
+                    <div class="hotLink font14">
+                        <a href="">热门标签</a>
+                        <a href="">热门标签标签</a>
+                        <a href="">热门标签</a>
+
+                    </div>
+                </div>
+                <div class="hotLists font18 color666">
+<!--                 {pc:content action="lists" catid="$catid" num="10" order="listorder desc" moreinfo="1"  return="event6" where(id>'$id')}-->
+                 {pc:get sql="select id,title,url from bc_download where catid=$catid AND id<$id order by id desc"   num="10" return="data"}
+					{loop $data $r}
+                   <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                        {str_cut($r['title'],50)}
+                    </a>
+					{/loop}    
+                {/pc} 
+                </div>
+            </div>
+        </div>
+        </div>
+        
+          {template "content","footer"}
+          
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+	</body>
+</html>

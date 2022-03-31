@@ -1,0 +1,62 @@
+{template "content","header"}
+<div class="main">
+<div class="block box animated_element animation-fadeInUp duration-500">
+	<div id="ur_here"> <div class="Navigation">当前位置: <a href="{APP_PATH}">首页</a> <code>&gt;</code> <a href="{get_taghomeurl()}">Tags</a> <code>&gt;</code> &nbsp; {$title}</div> </div>
+</div>
+</div>
+<div class="main special-intro">
+	<div class="inner">
+{if $thumb}
+        <div class="intro-pic fl">
+            <img class="ty_lf" src="{$thumb}" alt="{$title}">
+        </div>
+{/if}
+        <div class="intro-text fr"{if !$thumb} style="width:100%; clear:both;"{/if}>
+			<h1 class="special-title">{$title}</h1>
+            <div class="condes" style="display:none;">总共有 {$total} 条相关信息</div>
+			<div class="special-profile">
+            	<p>{$content}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main newsmain">
+	<div class="inner">
+		<div class="mianleft">
+			<div class="maincontent">
+{loop $tagdata $r}
+{php $db = pc_base::load_model('hits_model'); $_r = $db->get_one(array('hitsid'=>'c-'.$r[modelid].'-'.$r[contentid])); $views = $_r[views];}
+{php $v = get_artinfo($r[catid],$r[contentid]);}
+{php $r[title] = $v['title'] ? $v['title'] : $r[title];}
+				<div class="content animated_element animation-fadeInUp duration-500">
+					<div class="contop">
+						<div class="contopleft"{if !$r[thumb]} style="width:100%;"{/if}>
+							<div class="conttitle">
+								<a href="{if $v['url']}{$v['url']}{else}{$r['url']}{/if}" title="{strip_tags($r[title])}">{$r[title]}</a>
+							</div>
+							<div class="condes">{$v['description']}</div>
+						</div>
+{if $r[thumb] || $v[thumb]}
+						<div class="contentright">
+								<a href="{$r[url]}" title="{strip_tags($r[title])}"><img src="{if $v['thumb']}{thumb($v[thumb],175,105)}{else}{thumb($r[thumb],175,105)}{/if}" alt="{strip_tags($r[title])}"></a>
+						</div>
+{/if}
+					</div>
+					<div class="clear"></div>
+					<div class="contdow">
+						<div class="conyuedu"><span class="yuedubj">阅读</span>{$views}+</div>
+						<div class="fbtime"><span class="timebj"></span>{date('Y-m-d',$v[inputtime])}</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+{/loop}
+                <div class="fd_pager" style=" width:100%; text-align:center;">
+                    <div class="pagenavi">{$pages}</div>
+                </div>
+			</div>
+		</div>
+		<div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+{template "content","footer"}

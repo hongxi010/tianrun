@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+	<meta name="format-detection" content="telephone=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+	<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+
+	<body>
+        {template "content","header"}
+        <div class="nyBanner flex flexat flexjt" style="background: url({CSS_PATH}web/images/bannerBg.jpg) no-repeat center">
+            <div class="bts colorfff centers">
+                <div class="font40 animationDH animateLt"><div class="bit bit2"><span class="font80"></span>SOLUTION</div></div>
+                <div class="font40 animationDH animateRt"><div class="bxt">解决方案 <span class="font40">TIANRUN</span></div></div>
+            </div>
+        </div>
+        <div class="autowidth pb6">
+            {template "content","nav_link_item"}
+             {pc:content action="category" catid="39"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+            {php $f++} 
+            <div class="animationDH animateBt">
+                <div class="font24 font700 pt3" id="{$f}">{$s[catname]}</div>
+                <dl class="flex flexwp caseFlex pt2">
+
+                 {pc:content action="lists" catid="$s[catid]"  order="listorder ASC" moreinfo="1"  return="event6"}
+					{loop $event6 $e6}
+                    <dd>
+                        <a href="{$e6[url]}">
+                        <div class="scaleImg"><img src="{if $e6[thumb]}{$e6[thumb]}{else}{CSS_PATH}web/images/thumb.jpg{/if}" alt=""></div>
+                        <div class="tit font18">{$e6[title]}</div>
+                        </a>
+                    </dd>
+					 {/loop}
+                {/pc}
+                </dl>
+            </div>
+           
+            {/loop}
+	 	{/pc}
+        </div>
+        {template "content","footer"}
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+
+	</body>
+</html>
