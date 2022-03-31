@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+	<meta name="keywords" content="{$SEO['keyword']}">
+	<meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+    <link rel="canonical" href=""/>
+    <meta name="robots" content="all">
+    <meta name="referrer" content="always"/>
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="format-detection" content="telephone=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+	<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+
+	<body>
+        {template "content","header"}
+        <div class="nyBanner flex flexat flexjt" style="background: url({CSS_PATH}web/images/bannerBg.jpg) no-repeat center">
+            <div class="bts colorfff centers">
+                <div class="font40 animationDH animateLt"><div class="bit bit2"><span class="font80"></span>CASE</div></div>
+                <div class="font40 animationDH animateRt"><div class="bxt">客户案例 <span class="font40">TIANRUN</span></div></div>
+            </div>
+        </div>
+        <div class="autowidth pb2">
+            {template "content","nav_link_title"}
+        </div>
+        <div class="autowidth pt2 pb2 animationDH animateBt">
+			{$content}
+        </div>
+        <div class="bgF6F7F8 pt5 pb5">
+            <div class="autowidth animationDH animateBt">
+             {$solution}
+            </div>
+        </div>
+        <div class="autowidth pt5  animationDH animateBt">
+            <div class="font24 pb2"><b>使用产品</b></div>
+            <dl class="flex useprodDL pt2 pb3">
+            
+           {pc:content action="category" catid="76"  order="listorder ASC"  return="datas"}
+			{loop $datas $s}
+				{if $s[listorder]==$pro_tj} 
+                {pc:content action="lists" catid="$s[catid]" num="5" order="listorder ASC" moreinfo="1"  return="event6"}
+                      {loop $event6 $e6}
+                    <dd>
+                         <a href="{$e6[url]}"><img class="wt50" src="{$e6[thumb]}" alt="{$e6[title]}"></a>
+                         <div class="font20 font400 mt2"> <a href="{$e6[url]}">{$e6[title]} </a></div>
+                    </dd>
+                      {/loop}
+                   {/pc}
+              {/if}
+            {/loop}
+            {/pc}
+
+            </dl>
+            <div class="font24 pb2"><b>同行业解决方案</b></div>
+            <dl class="flex flexwp flexbt flexthree pb3">
+             {pc:content action="lists" catid="$CAT[catid]" num="9" order="listorder ASC" moreinfo="1"  return="event6"}
+				{loop $event6 $e6}
+                <dd>
+                    <a class="scaleImg" href="{$e6[url]}">
+                        <img src="{if $e6[thumb]}{$e6[thumb]}{else}{CSS_PATH}web/images/thumb.jpg{/if}" alt=""><div class="tit pt1 font18">{$e6[title]}</div>
+                    </a>
+                </dd>
+                 {/loop}
+			 {/pc}
+            </dl>
+            <div class="font24 pb2"><b>整体行业解决方案</b></div>
+            <dl class="flex flexwp flexbt flexthree2 pb3">
+            {pc:content action="category" catid="$CAT[parentid]"  order="listorder ASC"  return="datas"}
+				{loop $datas $s}
+                <dd>
+                    <a class="scaleImg" href="{$s[url]}">
+                        <img src="{$s[image]}" alt=""><div class="tit font18">{$s[catname]}</div>
+                    </a>
+                </dd>
+	    		{/loop}
+	 		{/pc}
+            </dl>
+        </div>
+        <div class="autowidth pt2 pb5 animationDH animateBt">
+			{$xz_zd}
+          <div class="publicBtn centers  pt4 mpt1">
+                        <a class="btn mr1" href="" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
+                        <a class="btn btn2" href="" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
+          </div>
+        </div>
+
+         {template "content","footer"}
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+        
+	</body>
+</html>

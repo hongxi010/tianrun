@@ -30,16 +30,17 @@
 .useprodDL dd{text-align: center;flex: 1;border-right: 1px solid #eee;}
 .useprodDL dd:nth-last-child(1){border: 0;}
 .flexthree dd{width: 23.5%;margin-bottom: 1.5%;}
-.flexthree::after{content: '';width: 32.33%;}
-.flexthree dd img{display: block;width: 100%;box-sizing: border-box;border-radius: .15rem;border: 1px solid #ddd;}
+.flexthree::after{content: '';width: 23.5%;}
+.flexthree dd img{display: block;width: 100%;border: 1px solid #ddd;}
 .wt80{width: .8rem;}
 .flexthree2 dd{width: 23.5%;margin-bottom: 1.5%;position: relative;}
-.flexthree2::after{content: '';width: 30.33%;}
+.flexthree2::after{content: '';width:23.5%;}
 .flexthree2 dd img{display: block;width: 100%;}
 .flexthree2 dd .tit{position: absolute;left: 0;right: 0;text-align: center;top: 50%;transform: translate(0,-50%);-webkit-transform: translate(0,-50%);font-weight: 700;color: #fff;}
 .flexthree2 dd .tit2{position: absolute;left: 0;right: 0;bottom: 0;background: rgba(0,0,0,.5);color: #fff;padding: .15rem;text-align: center;}
 .mukuai .imgswt{width: 46%;margin-left: 5%;}
 .mbTitle{position: absolute;left: 0;right: 0;bottom: 0;background: rgba(0,0,0,.5);color: #fff;padding: .1rem;}
+
 
 /*关于我们*/
 .detailsTxt img{height: auto !important;}

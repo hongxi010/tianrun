@@ -131,7 +131,7 @@
                    
                 </dl>
                 <div class="publicBtn centers pt4">
-                    <a class="btn mr1" href="../index/register.html" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
+                    <a class="btn mr1" href="/register/" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
                     <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
                 </div>
             </div>
@@ -160,8 +160,8 @@
                                 <div class="font24 colorfff">{$e6[description]}</div>
                                 <div class="colorfff opacity5 pt3">{$e6[content]}</div>
                                 <div class="publicBtn btns pt2">
-                                    <a class="btn mr1" href="../about/index.html">了解我们</a>
-                                    <a class="btn btn2" href="../about/contact.html">联系我们</a>
+                                    <a class="btn mr1" href="/solution/">了解更多</a>
+                                    <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">申请演示</a>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +212,7 @@
 	 	{/pc}
                         </dl>
                         <div class="publicBtn pt5 mpt2">
-                            <a class="btn mr1" href="../index/register.html" rel="nofollow">申请注册 <i class="iconfont">&#xe79c;</i></a>
+                            <a class="btn mr1" href="/register/" rel="nofollow">申请注册 <i class="iconfont">&#xe79c;</i></a>
                         </div>
                     </div>
                     <div class="flex1">
@@ -221,7 +221,7 @@
             {pc:content action="category" catid="164"  order="listorder ASC"  return="datas"}
 			{loop $datas $s}
 				{if $s[listorder]==2} 
-                {pc:content action="lists" catid="$s[catid]"  order="listorder ASC" moreinfo="1"  return="event6"}
+                {pc:content action="lists" catid="$s[catid]" num="300" order="listorder ASC" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}                            
                                 <div class="swiper-slide">
                                     <img src="{$e6[thumb]}" alt="{$e6[title]}">
@@ -259,7 +259,7 @@
 			   {/pc}
                 </dl>
                 <div class="publicBtn centers pt2">
-                    <a class="btn mr1" href="../index/register.html" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
+                    <a class="btn mr1" href="/register/" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
                     <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
                 </div>
             </div>
@@ -296,7 +296,7 @@
                     {pc:content action="lists" catid="31" num="5" order="listorder desc,inputtime desc" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}
                      {php $k++} 
-					{if $k>4} 
+					{if $k==5} 
                         <div class="img mb1" >
                             <div class="scaleImg"><a href="{$e6[url]}" title="{$e6[title]}"><img src="{CSS_PATH}web/images/a1.jpg" alt="{$e6[title]}"></a></div>
                             <div class="tit colorfff"><a  href="{$e6[url]}" title="{$e6[title]}">{$e6[title]}</a></div>

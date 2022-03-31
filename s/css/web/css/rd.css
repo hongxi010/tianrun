@@ -4,7 +4,7 @@
   max-width: 95%;
 }
 .height10 {
-  height: 1rem;
+  height: .7rem;
 }
 .w50 {
   width: 50%;
@@ -209,6 +209,10 @@
 .bannerTypeTwo {
   position: relative;
 }
+.bannerTypeOne img {
+    margin: 0 auto;
+    display: block;
+}
 .bannerTypeOne .cons,
 .bannerTypeTwo .cons {
   width: 100%;
@@ -233,8 +237,8 @@
   width: 50%;
 }
 .imgTextMod dl .ddText {
-  width: 40%;
-  padding-left: 0.6rem;
+  width: 50%;
+  padding-left: 0.3rem;
   box-sizing: border-box;
 }
 .imgTextMod dl .ddText ol li {
@@ -590,3 +594,5 @@ ul.ulListTypeFive li:last-child::after {
     margin-bottom: 0.2rem;
   }
 }
+.bannerTypeOne .cons {display: flex; align-items: center;}
+.bannerTypeOne .banenrTit .font42 {margin-top: 0;}

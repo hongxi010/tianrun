@@ -40,12 +40,12 @@
         <div class="autowidth pt2 pb2 animationDH animateBt">
 			{$content}
         </div>
-        <div class="bgF6F7F8 pt5 pb5">
+        <div class="pt5 pb5">
             <div class="autowidth animationDH animateBt">
              {$solution}
             </div>
         </div>
-        <div class="autowidth pt5  animationDH animateBt">
+        <div class="autowidth  pb5 animationDH animateBt">
             <div class="font24 pb2"><b>使用产品</b></div>
             <dl class="flex useprodDL pt2 pb3">
             
@@ -65,38 +65,9 @@
             {/pc}
 
             </dl>
-            <div class="font24 pb2"><b>同行业解决方案</b></div>
-            <dl class="flex flexwp flexbt flexthree pb3">
-             {pc:content action="lists" catid="$CAT[catid]" num="9" order="listorder ASC" moreinfo="1"  return="event6"}
-				{loop $event6 $e6}
-                <dd>
-                    <a class="scaleImg" href="{$e6[url]}">
-                        <img src="{$e6[thumb]}" alt=""><div class="tit pt1 font18">{$e6[title]}</div>
-                    </a>
-                </dd>
-                 {/loop}
-			 {/pc}
-            </dl>
-            <div class="font24 pb2"><b>整体行业解决方案</b></div>
-            <dl class="flex flexwp flexbt flexthree2 pb3">
-            {pc:content action="category" catid="$CAT[parentid]"  order="listorder ASC"  return="datas"}
-				{loop $datas $s}
-                <dd>
-                    <a class="scaleImg" href="{$s[url]}">
-                        <img src="{$s[image]}" alt=""><div class="tit font18">{$s[catname]}</div>
-                    </a>
-                </dd>
-	    		{/loop}
-	 		{/pc}
-            </dl>
+
         </div>
-        <div class="autowidth pt2 pb5 animationDH animateBt">
-			{$xz_zd}
-          <div class="publicBtn centers  pt4 mpt1">
-                        <a class="btn mr1" href="" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
-                        <a class="btn btn2" href="" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
-          </div>
-        </div>
+
 
          {template "content","footer"}
 		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>

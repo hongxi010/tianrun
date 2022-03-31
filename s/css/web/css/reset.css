@@ -308,7 +308,7 @@ img{vertical-align: middle;max-width: 100%;}
 	.animationDH.current .dhy4,.swiper-slide-active .dhy4{animation: .75s .75s dhs linear both; -webkit-animation: .75s .75s dhs linear both}
 	.animationDH.current .dhy5,.swiper-slide-active .dhy5{animation: .75s 1s dhs linear both; -webkit-animation: .75s 1s dhs linear both}
 
-	
+	.animationDH.current p{ line-height:2;}
 }
 @-webkit-keyframes dh_rt {
 	from { opacity: 0; -webkit-transform: translate(60px,0%); }

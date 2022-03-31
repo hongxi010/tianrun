@@ -15,7 +15,7 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
 <link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
 <div class="header">
    <div class="autowidth flex flexat flexbt">
-       <a class="logo flex flexat" href="/"><div class="flex flexat"><img src="{CSS_PATH}web/images/logo.png" alt="天润"></div><div class="daima colorfff"><p>股票代码</p><p>8888</p></div></a>
+       <a class="logo flex flexat" href="/"><div class="flex flexat"><img src="{CSS_PATH}web/images/logo.png" alt="天润融通"></div><div class="daima colorfff"><p></p><p></p></div></a>
 <div class="flex1 navFlex">
            <dl class="flex flexend headNav">
                <dd><a href="/">首页</a></dd>
@@ -73,18 +73,7 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                 </dd>
                {elseif $s[listorder]==3}     
                <dd {if $CAT[catid]==18}class="on"{/if}{if $CAT[parentid]==18}class="on"{/if}><a href="{$s[url]}">{$s[catname]}</a></dd>
-               {elseif $s[listorder]==4}   
-               <dd class="position2 {if $CAT[catid]==101}on{/if}">
-                   <a href="{$s[url]}">{$s[catname]} <i class="iconfont">&#xe610;</i></a>
-                   <div class="slideNav">
-                       {pc:content action="lists" catid="$s[catid]" num="10" order="listorder ASC" moreinfo="1"  return="event6"}
-						{loop $event6 $e6}
-                       <div class="link"><a href="{$e6[url]}">{$e6[title]}</a></div>
-                       	 {/loop}
-                	{/pc}
-                   </div>
-                </dd>
-               {elseif $s[listorder]==5}    
+               {elseif $s[listorder]==4}    
                <dd class="position2">
                     <a href="{$s[url]}">{$s[catname]} <i class="iconfont">&#xe610;</i></a>
                     <div class="slideNav">
@@ -101,11 +90,11 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
               
            </dl>
        </div>
-       <a href="tel:4000-888-888" class="flex flexat zixun colorfff">
+       <a href="tel:400-686-9091" class="flex flexat zixun colorfff">
            <i class="iconfont pr1">&#xe744;</i>
-           <span href="">咨询：4000-888-888</span>
+           <span href="">咨询：400-686-9091</span>
        </a>
-       <div class="publicBtn2 ml2"><a class="btn mr1" href="../index/register.html" rel="nofollow">免费注册 <i class="iconfont"></i></a></div>
+       <div class="publicBtn2 ml2"><a class="btn mr1" href="/register/" rel="nofollow">免费注册 <i class="iconfont"></i></a></div>
        <div class="navMenu"> 
            <span class="line1"></span>
            <span class="line2"></span>

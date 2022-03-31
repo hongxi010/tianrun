@@ -47,8 +47,7 @@ function hits($hitsid) {
 	global $db;
 	$r = $db->get_one(array('hitsid'=>$hitsid));
 	if(!$r) return false;
-	$rand_nums=rand(10,50);
-    $views = $r['views'] + $rand_nums;
+    $views = $r['views'] + 1;
 	$yesterdayviews = (date('Ymd', $r['updatetime']) == date('Ymd', strtotime('-1 day'))) ? $r['dayviews'] : $r['yesterdayviews'];
 	$dayviews = (date('Ymd', $r['updatetime']) == date('Ymd', SYS_TIME)) ? ($r['dayviews'] + 1) : 1;
 	$weekviews = (date('YW', $r['updatetime']) == date('YW', SYS_TIME)) ? ($r['weekviews'] + 1) : 1;
