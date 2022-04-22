@@ -115,11 +115,11 @@
   border-radius: 0.06rem;
 }
 .section_d {
-  padding: 0.9rem 0;
+  padding: 0.5rem 0;
 }
-.section_d:first-child {
+/*.section_d:first-child {
   padding-top: 0;
-}
+}*/
 .section_d .imgTextMod:last-child {
   margin-bottom: 0;
 }

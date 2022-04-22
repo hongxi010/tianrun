@@ -220,9 +220,16 @@ return array (
     'errortips' => '',
     'formtype' => 'box',
     'setting' => 'array (
-  \'options\' => \'推荐产品一|31
-推荐产品二|32
-推荐产品三|302\',
+  \'options\' => \'推荐产品一|1
+推荐产品二|2
+推荐产品三|3
+推荐产品四|4
+推荐产品五|5
+推荐产品六|6
+推荐产品七|7
+推荐产品八|8
+推荐产品九|9
+推荐产品十|10\',
   \'boxtype\' => \'select\',
   \'fieldtype\' => \'tinyint\',
   \'minnumber\' => \'-1\',
@@ -248,9 +255,16 @@ return array (
     'listorder' => '11',
     'disabled' => '0',
     'isomnipotent' => '0',
-    'options' => '推荐产品一|31
-推荐产品二|32
-推荐产品三|302',
+    'options' => '推荐产品一|1
+推荐产品二|2
+推荐产品三|3
+推荐产品四|4
+推荐产品五|5
+推荐产品六|6
+推荐产品七|7
+推荐产品八|8
+推荐产品九|9
+推荐产品十|10',
     'boxtype' => 'select',
     'fieldtype' => 'tinyint',
     'minnumber' => '-1',
@@ -454,7 +468,7 @@ return array (
     'modelid' => '3',
     'siteid' => '1',
     'field' => 'xz_zd',
-    'name' => '备用栏目',
+    'name' => '列表摘要',
     'tips' => '',
     'css' => '',
     'minlength' => '0',
@@ -470,6 +484,7 @@ return array (
   \'link_mode\' => \'0\',
   \'enablesaveimage\' => \'0\',
   \'height\' => \'200\',
+  \'disabled_page\' => \'0\',
   \'listshow\' => \'0\',
   \'listfilter\' => \'0\',
 )',
@@ -494,6 +509,7 @@ return array (
     'link_mode' => '0',
     'enablesaveimage' => '0',
     'height' => '200',
+    'disabled_page' => '0',
     'listshow' => '0',
     'listfilter' => '0',
   ),

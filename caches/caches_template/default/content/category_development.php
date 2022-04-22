@@ -67,9 +67,8 @@
                             <div class="flex flexat txt">
                                 <div class="flex1 date">
                                     <div class="font700 font18"><?php echo $e6['title'];?></div>
-                                    <div class="font14 color666"><?php echo $e6['description'];?></div>
+                                    <div class="font14 color666"><?php echo $e6['content'];?></div>
                                 </div>
-                                <img class="wt80" src="<?php echo $e6['thumb'];?>" alt="<?php echo $e6['title'];?>">
                             </div>
                             <div class="point"><span class="p1"></span><span class="p2"></span></div>
                         </dd>

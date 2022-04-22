@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <title>呼叫中心系统_在线客服系统_智能机器人客服管理【天润融通】</title>
     <meta name="keywords" content="{$SEO['keyword']}">
     <meta name="description" content="{$SEO['description']}">
 	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
@@ -40,8 +40,8 @@
                                 <div class="colorfff mfont38 font500 pt3 pb3 dhy2">{$e6[title]}</div>
                                 <div class="colorfff mfont20 pb8 dhy3">{$e6[description]}</div>
                                 <div class="flex mfont20 dhy4">
-                                    <a class="btn btn1 font16" href="{$e6[url]}" rel="nofollow">了解详情 <i class="iconfont pl1">&#xe79c;</i></a>
-                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">申请演示 <i class="iconfont pl1">&#xe61e;</i></a>
+                                    <a class="btn btn1 font16" href="{$e6[url]}" rel="nofollow">产品体验 <i class="iconfont pl1">&#xe79c;</i></a>
+                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">在线咨询 <i class="iconfont pl1">&#xe61e;</i></a>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                                 <div class="colorfff mfont38 font500 pt3 pb3 dhy2">{$e6[title]}</div>
                                 <div class="colorfff mfont20 pb8 dhy3">{$e6[description]}</div>
                                 <div class="flex flexjt mfont20 dhy4">
-                                    <a class="btn btn1 font16" href="{$e6[url]}" rel="nofollow">了解详情 <i class="iconfont pl1">&#xe79c;</i></a>
-                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">申请演示 <i class="iconfont pl1">&#xe61e;</i></a>
+                                    <a class="btn btn1 font16" href="{$e6[url]}" rel="nofollow">产品体验 <i class="iconfont pl1">&#xe79c;</i></a>
+                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">在线咨询 <i class="iconfont pl1">&#xe61e;</i></a>
                                 </div>
                             </div>
                         </div>
@@ -131,8 +131,8 @@
                    
                 </dl>
                 <div class="publicBtn centers pt4">
-                    <a class="btn mr1" href="/register/" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
-                    <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
+                    <a class="btn mr1" href="/register/" rel="nofollow">产品体验 <i class="iconfont">&#xe6f2;</i></a>
+                    <a class="btn btn2" href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank">在线咨询 <i class="iconfont">&#xe62a;</i></a>
                 </div>
             </div>
         </div>
@@ -158,10 +158,10 @@
                             <div class="imgs"><img class="blockImg" src="{$e6[thumb]}" alt=""></div>
                             <div class="flex1 txt">
                                 <div class="font24 colorfff">{$e6[description]}</div>
-                                <div class="colorfff opacity5 pt3">{$e6[content]}</div>
+                                <div class="colorfff  pt3">{$e6[content]}</div>
                                 <div class="publicBtn btns pt2">
-                                    <a class="btn mr1" href="/solution/">了解更多</a>
-                                    <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">申请演示</a>
+                                    <a class="btn mr1" href="{$e6[url]}">了解详情 <i class="iconfont">&#xe79c;</i></a>
+                                    <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">在线咨询 <i class="iconfont pl1">&#xe61e;</i></a>
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
             {pc:content action="category" catid="164"  order="listorder ASC"  return="datas"}
 			{loop $datas $s}
 				{if $s[listorder]==1} 
-                {pc:content action="lists" catid="$s[catid]" num="12" order="listorder ASC" moreinfo="1"  return="event6"}
+                {pc:content action="lists" catid="$s[catid]" num="15" order="listorder ASC" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}
                     <dd class="on">{$e6[title]}</dd>
                   {/loop}
@@ -197,12 +197,16 @@
              {pc:content action="category" catid="164"  order="listorder ASC"  return="datas"}
 			{loop $datas $s}
 				{if $s[listorder]==1} 
-                {pc:content action="lists" catid="$s[catid]" num="12" order="listorder ASC" moreinfo="1"  return="event6"}
+                {pc:content action="lists" catid="$s[catid]" num="15" order="listorder ASC" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}                           
                             <dd class="on">
                                 <div class="font30 font700 pb2">{$e6[title]}</div>
                                 <div class="font16 color888">
 									 {$e6[content]}
+                                </div>
+                                
+                                <div class="publicBtn pt5 mpt2">
+                               	 <a class="btn mr1" href="{$e6[url]}">了解详情 <i class="iconfont">&#xe6f2;</i> </a>
                                 </div>
                             </dd>
                   {/loop}
@@ -211,9 +215,7 @@
 	    {/loop}
 	 	{/pc}
                         </dl>
-                        <div class="publicBtn pt5 mpt2">
-                            <a class="btn mr1" href="/register/" rel="nofollow">申请注册 <i class="iconfont">&#xe79c;</i></a>
-                        </div>
+
                     </div>
                     <div class="flex1">
                         <div class="swiper-container hangye">
@@ -224,7 +226,11 @@
                 {pc:content action="lists" catid="$s[catid]" num="300" order="listorder ASC" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}                            
                                 <div class="swiper-slide">
+                                {if $e6[url]==1}
                                     <img src="{$e6[thumb]}" alt="{$e6[title]}">
+                                {else}
+                                    <a href="{$e6[url]}"><img src="{$e6[thumb]}" alt="{$e6[title]}"></a>
+                                {/if}
                                 </div>
                   {/loop}
 			   {/pc}
@@ -258,10 +264,10 @@
                   {/loop}
 			   {/pc}
                 </dl>
-                <div class="publicBtn centers pt2">
+                <!--<div class="publicBtn centers pt2">
                     <a class="btn mr1" href="/register/" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
                     <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
-                </div>
+                </div>-->
             </div>
         </div>
         
@@ -276,7 +282,7 @@
             			{loop $data $key $e6}
                        <div class="img">
                            <div class="scaleImg"><a href="{$e6[url]}" title="{$e6[title]}"><img src="{CSS_PATH}web/images/a2.jpg" alt="{$e6[title]}"></a></div>
-                           <div class="tit colorfff font18"><a  href="{$e6[url]}" title="{$e6[title]}">{$e6[title]}</a></div>
+                           <div class="tit colorfff "><a  href="{$e6[url]}" title="{$e6[title]}">{$e6[title]}</a></div>
                        </div>
                      {/loop}
 			      {/pc} 
@@ -286,8 +292,9 @@
 					{loop $event6 $e6}
 
                         <div class="txt" >
-                           <div class="max2 font18 color666"><a href="{$e6[url]}" title="{$e6[title]}">{str_cut($e6['title'],70)}</a></div>
+                           <div class="max2  color666"><a href="{$e6[url]}" title="{$e6[title]}">{str_cut($e6['title'],60)}</a></div>
                            <div class="font14 pt1">{date('Y-m-d', $e6['inputtime'])}</div>
+                           
                         </div>
                      {/loop}
 			      {/pc}
@@ -310,7 +317,7 @@
                   {pc:content action="lists" catid="282,283" num="10" order="listorder desc" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}             
                                     <div class="swiper-slide txt">
-                                        <div class="max2 font18"><a href="{$e6[url]}" title="{$e6[title]}">{str_cut($e6['title'],60)}</a></div>
+                                        <div class="max2 "><a href="{$e6[url]}" title="{$e6[title]}">{str_cut($e6['title'],60)}</a></div>
                                         <div class="date font14">{date('Y-m-d', $e6['inputtime'])}</div>
                                     </div>
                      {/loop}
@@ -322,7 +329,7 @@
                    </div>
                 </div>
                 <div class="centers moreBtn pt2">
-                    <a class="font18 color888" href="#" rel="nofollow">查看更多</a>
+                    <a class="font18 color888" href="/news/" rel="nofollow">查看更多 <i class="iconfont">&#xe79c;</i></a>
                 </div>
             </div>
         </div>
@@ -332,7 +339,7 @@
             <div class=" animationDH animateBt">
                 <div class="font24 colorfff">{$e6[title]}</div>
                 <div class="font24 colorfff pt1">{$e6[entitle]}</div>
-                <div class="pt2"><a class="sy font18" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用</a></div>
+                <div class="pt2"><a class="sy font18" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用  <i class="iconfont">&#xe62a;</i></a></div>
             </div>
         </div>
             {/loop}
@@ -368,7 +375,7 @@
                     speed:800,
                     slidesPerView :1,
                     autoplay:{
-                        delay: 5000,
+                        delay: 6000,
                         disableOnInteraction: false
                     },
                     pagination: {

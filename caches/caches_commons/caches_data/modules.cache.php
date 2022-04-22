@@ -430,6 +430,20 @@ return array (
     'installdate' => '2012-03-02',
     'updatedate' => '2012-04-10',
   ),
+  'tags' => 
+  array (
+    'module' => 'tags',
+    'name' => 'Tags标签',
+    'url' => 'tags/',
+    'iscore' => '0',
+    'version' => '1.3',
+    'description' => 'Tags标签',
+    'setting' => '',
+    'listorder' => '0',
+    'disabled' => '0',
+    'installdate' => '2020-02-12',
+    'updatedate' => '2020-02-12',
+  ),
   'tag' => 
   array (
     'module' => 'tag',
@@ -441,8 +455,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2022-03-30',
-    'updatedate' => '2022-03-30',
+    'installdate' => '2022-04-21',
+    'updatedate' => '2022-04-21',
   ),
 );
 ?>

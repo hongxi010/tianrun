@@ -37,8 +37,8 @@
         
         <div class="nyBanner flex flexat flexjt" style="background: url({$e6[thumb]}) no-repeat center">
              <div class="bts colorfff centers">
-                 <div class="font40 animationDH animateLt"><div class="bit">{$e6[title]}</div></div>
-                 <div class="font24 animationDH animateRt"><div class="bxt">{$e6[description]}</div></div>
+                 <div class="font34 animationDH animateLt"><div class="bit">{$e6[title]}</div></div>
+                 <div class="font18 animationDH animateRt"><div class="bxt">{$e6[description]}</div></div>
              </div>
         </div>
                   {/loop}
@@ -46,7 +46,7 @@
               {/if}
 	    {/loop}
 	 	{/pc}
-        <div class="autowidth pb6">
+        <div class="autowidth">
 		{template "content","nav_link"}
         
          {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
@@ -54,14 +54,14 @@
 				{if $s[listorder]==2} 
 
             <div class="animationDH animateBt">
-                <div class="font32 font700 centers pt4 pb2">{$s[catname]}</div>
+                <div class="font30 font700 centers pt4 pb2">{$s[catname]}</div>
                 <dl class="hangyeDL flex flexwp flexbt">
                  {pc:content action="lists" catid="$s[catid]" num="4" order="listorder ASC" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}
                     <dd>
-                        <img class="wt160" src="{$e6[thumb]}" alt="{$e6[title]}">
-                        <div class="font20 colorlogo font700"> {$e6[title]}</div>
-                        <div class="font18 color666 pt2"> {$e6[content]}</div>
+                        <img class="w6rem" src="{$e6[thumb]}" alt="{$e6[title]}">
+                        <div class="font18 colorlogo "> {$e6[title]}</div>
+                        <div class="font16 color666 pt2"> {$e6[content]}</div>
                     </dd>
                {/loop}
 			   {/pc}
@@ -70,20 +70,18 @@
               {/if}
 	    {/loop}
 	 	{/pc} 
-        </div>
+
        {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
 			{loop $datas $s}
 				{if $s[listorder]==3} 
-        <div class="bgF6F7F8 pt5 pb5">
+        <div class="pt5 ">
             <div class="autowidth animationDH animateBt">
               {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}
-                <div class="font32 font700 centers pb2">{$e6[title]}</div>
-
+                <div class="font30 font700 centers pb2">{$e6[title]}</div>
                 <div class="detailsTxt color666">
    					{$e6[content]}
                 </div>
-
             </div>
                  {/loop}
 			   {/pc}
@@ -91,11 +89,12 @@
           {/if}
 	    {/loop}
 	 	{/pc} 
-        <div class="autowidth pt5 pb5 animationDH animateBt">
+         </div>
+        <div class="autowidth pt5  animationDH animateBt">
         {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
 			{loop $datas $s}
 				{if $s[listorder]==4} 
-            <div class="font32 font700 centers pb2">{$s[catname]}</div>
+            <div class="font30 font700 centers pb2">{$s[catname]}</div>
             <dl class="flex flexwp flexbt flexthree2 pb3">
             {pc:content action="lists" catid="$s[catid]" num="4" order="listorder desc" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}
@@ -114,20 +113,31 @@
         {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
 			{loop $datas $s}
 				{if $s[listorder]==5} 
-            
-         <div class="font32 font700 centers pb2">{$s[catname]}</div>
+                
+        {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+            {loop $event6 $e6}  
+         <div class="font30 font700 centers pb2">{$s[catname]}</div>
             <dl class="flex useprodDL pt2 pb4">
-            {pc:content action="lists" catid="$s[catid]" num="5" order="listorder Asc" moreinfo="1"  return="event6"}
-					{loop $event6 $e6}
+               {pc:content action="category" catid="76"  order="listorder ASC"  return="items"}
+                {loop $items $q}
+                    {if $q[listorder]==$e6[pro_tj]} 
+                        {pc:content action="lists" catid="$q[catid]" num="5" order="listorder ASC" moreinfo="1"  return="event8"}
+                          {loop $event8 $e8}
                 <dd>
-                   
-                        <img class="wt50" src="{$e6[thumb]}" alt="{$e6[title]}">
-                        <div class="font20 pt1">{$e6[title]}</div>
-                   
+                    <a href="{$e8[url]}">
+                        <img class="wt50" src="{$e8[thumb]}" alt="{$e8[title]}">
+                        <div class="font20 pt1">{$e8[title]}</div>
+                   </a>
                 </dd>
- 					{/loop}
-			   {/pc}
+ 				 {/loop}
+                       {/pc}
+                  {/if}
+                {/loop}
+                {/pc}
             </dl>
+            {/loop}
+                {/pc} 
+            
                 {/if}
 	    {/loop}
 	 	{/pc}   

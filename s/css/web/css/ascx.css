@@ -13,7 +13,9 @@
 .slideOL .links>a{padding: .2rem 0 0 0;}
 .slideNav .links .name{padding: 0 0.05rem;}
 .slideNav .links .desc{width: 100%;padding-left: 18px;padding-top: 5px;max-width: 180px;}
-.slideOL2 .links .lin{padding: .1rem .5rem .1rem 0;}
+.slideOL2 .links .lin1{padding: .1rem .5rem .1rem 0; width:1rem;}
+.slideOL2 .links .lin2{padding: .1rem .5rem .1rem 0; }
+.slideOL2 .links .lin3{padding: .1rem .5rem .1rem 0; }
 .slideOL2 li{padding-bottom: .3rem;}
 .slideOL2 li:nth-last-child(1){padding: 0;}
 .headerHt{height: 60px;}
@@ -31,7 +33,7 @@
 .footDL dd{width: 24%;padding-right: 1%;}
 .footDL dd p{margin-top: .12rem}
 .yqlinks{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin-right: .1rem}
-.yqlinks a{display: inline-block;}
+.yqlinks a{display: inline-block;  width:1.5rem; padding-left:10px; padding-right:10px;}
 .yqlinks.on{white-space: normal}
 .youqing{max-width: 940px;}
 .footerBot{background: #293751;color: #aaa}
@@ -52,8 +54,8 @@
 .nyBanner .bit2{font-weight: normal;line-height: 1;margin-bottom: 0;}
 
 .nyBanner .bit,.nyBanner .bxt{position: relative;display: inline-block;letter-spacing: 2px;}
-.nyBanner .bit::after{position: absolute;left: 100%;top: 50%;height: 0.05rem;margin-top: -0.025rem;content: '';margin-left: .35rem;width: 4.8rem;background: #fff;}
-.nyBanner .bxt::after{position: absolute;right: 100%;top: 50%;height: 0.05rem;margin-top: -0.025rem;content: '';margin-right: .35rem;width: 4.8rem;background: #fff;}
+.nyBanner .bit::after{position: absolute;left: 100%;top: 50%;height: 0.05rem;margin-top: -0.025rem;content: '';margin-left: .35rem;width: 4.8rem;}
+.nyBanner .bxt::after{position: absolute;right: 100%;top: 50%;height: 0.05rem;margin-top: -0.025rem;content: '';margin-right: .35rem;width: 4.8rem;}
 .font120{font-size: 1.2rem;}
 
 .alertBox{position: fixed;left: 0;right: 0;top: 0;bottom: 0;z-index: 55;background: rgba(0,0,0,.6);display: none;}

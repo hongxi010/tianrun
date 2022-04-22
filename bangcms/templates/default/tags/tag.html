@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+    <meta name="keywords" content="{$SEO['keyword']}">
+    <meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+    <link rel="canonical" href=""/>
+    <meta name="robots" content="all">
+    <meta name="referrer" content="always"/>
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="format-detection" content="telephone=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+	<link rel="stylesheet" href="{CSS_PATH}web/css/font.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/ascx.css" />
+    <link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/page.css" />
+	<script type="text/javascript" src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="{CSS_PATH}web/js/rem.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+    <style type="text/css">.pages {font-size:inherit;text-align: center;}
+.pages a,.pages .a1{display: inline-block;vertical-align: top;min-width: 38px;line-height: 38px;border: 1px solid #ddd;background: #fff;font-size: 16px;margin: 3px;}
+.pages .a1{padding:0 10px;}
+.pages .on{background: #01AF8A;border-color: #0092db;color: #fff;}
+.pages a{}</style>
+{php $CAT[catid]='99999';}
+	<body>
+        {template "content","header"}
+        
+        <div class="nyBanner flex flexat flexjt" style="background: url({CSS_PATH}web/images/bannerBg.jpg) no-repeat center">
+            <div class="bts colorfff centers">
+                <div class="font40 animationDH animateLt"><div class="bit">{$tag}</div></div>
+                <div class="font24 animationDH animateRt"><div class="bxt">总共有 {$total} 条记录</div></div>
+            </div>
+        </div>
+        <div class="autowidth pb6">
+            <div class="flex flexbt breadTit color666">
+                <div>
+                    当前位置：
+                    <a href="/">首页</a>
+                    <span>&gt;</span>
+                    <a href="{get_taghomeurl()}">Tags</a>
+                    <span>&gt;</span>
+                    <span class="colorlogo">{$tag}</span>
+                </div>
+            </div>
+            <div class="animationDH animateBt">
+                <dl class="newsList font14 pt4">
+{loop $tagdata $r}
+{php $v = get_artinfo($r[catid],$r[contentid]);}
+{php if($r[url]!=$v['url']) $r[url] = $v['url'];}
+{php $r[title] = $v['title'] ? $v['title'] : $r[title];}
+{php $r[inputtime] = $r[inputtime] ? $r[inputtime] : $v[inputtime];}
+{php $r[thumb] = $r[thumb] ? $r[thumb] : $v[thumb];}
+{php $r[description] = $r[description] ? $r[description] : $v[description];}
+{php $r[keywords] = $r[keywords] ? $r[keywords] : $v[keywords];}				
+                   <dd>
+                        <div class="flex flexst">
+                            <div class="scaleImg"><a class="scaleImg" href="{$r[url]}" title="{$r[title]}"><img class="img_h" src="{if $r[thumb]}{$r[thumb]}{else}{CSS_PATH}web/images/thumb.jpg{/if}" alt="{$r[title]}"></a></div>
+                            <div class="flex1 cots">
+                                <div class="font24 font700 singleTxt"><a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a></div>
+                                <div class="max3 color888 pt1"><a href="{$r[url]}">{$r[description]}</a></div>
+                                <div class="pt2 flex flexbt flexat">
+                                    <div class="flex1 color888">
+                                       <i class="iconfont">&#xe89d;</i> {date('y-m-d', $r['inputtime'])}
+                                       <!--<i class="iconfont pl3">&#xe621;</i>  ：{$views} -->
+                                    </div>
+                                    <span class="more"><a href="{$r[url]}">查看详情 </a><i class="iconfont"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+{/loop}
+                </dl>
+                <div class="font14 color888 pt2 pages">
+                      {$pages} 
+                 </div>
+            </div>
+        </div>
+        
+        {template "content","footer"}
+        
+		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
+		<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+		<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid=9999"></script>
+	</body>
+</html>

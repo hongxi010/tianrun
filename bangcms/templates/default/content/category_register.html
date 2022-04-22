@@ -45,25 +45,27 @@ $token = $_SESSION["sqsy_token"];
 </style>
 	<body>
         {template "content","header"}
-        <div class="pl160 pr160">
-            <div class="flex flexat pt6 pb6 zhuceFlex mpt4">
-          {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
-			{loop $datas $s}
-				{if $s[listorder]==1} 
-                {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
-					{loop $event6 $e6}
-                <div class="zcLeft centers">
-                    <div class="font32 font700">{$e6[title]}</div>
-                    <div class="font18 color888">{$e6[content]}</div>
-                </div>
-                    {/loop}
-			   {/pc}
-              {/if}
+      {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+		{loop $datas $s}
+		 {if $s[listorder]==1} 
+           {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+			 {loop $event6 $e6}
+        <div class=" flex flexat flexjt" style="background: url({$e6[thumb]}) no-repeat center">
+              {/loop}
+			  {/pc}
+           {/if}
 	    {/loop}
 	 	{/pc}
+        <div class="pl160 pr160">
+            <div class="flex flexat pt6 pb6 zhuceFlex mpt4">
+
+                <div class="zcLeft centers">
+                    <div class="font32 font700"></div>
+                    <div class="font18 color888"></div>
+                </div>
+
                 <div class="flex1 zhuceForm">
-                    <div class="font32 font700 centers pb1">填写信息，获取免费试用名额</div>
-                    <div class="font16 color888 centers pb2">客服人员会尽快与您取得联系,安排试用</div>
+                    <div class="font24 font700 centers pb1">立即注册</div>
                     <form class="forms color888" method="post" action="{APP_PATH}index.php?m=formguide&c=index&a=show&formid=36&siteid=1" name="myform1" id="myform1" onSubmit="return postcheck1();">
                         <!--add by yuanjun at 2021.11.26 21:52:00-->
                         <input type="hidden" name="sqsy_token" value="<?php echo $token;?>"/>
@@ -79,14 +81,14 @@ $token = $_SESSION["sqsy_token"];
                            <label><span class="colorred">*</span>手机号：</label>
                            <div class="flex1 flex flexat text">
                                <i class="iconfont pl1 pr1 font20">&#xe62b;</i>
-                               <input class="flex1" name="info[tel]" id="tel1" placeholder="请输入您的手机号码" type="number">
+                               <input class="flex1" name="info[tel]" id="tel1" placeholder="请输入手机号码" type="number">
                            </div>
                        </div>
                        <div class="flex flexat fmItem">
                             <label><span class="colorred">*</span>验证码：</label>
                             <div class="flex1 flex flexat text">
                                 <i class="iconfont pl1 pr1 font20">&#xe624;</i>
-                                <input class="flex1" name="sms_code" id="sms_code1" placeholder="请输入短信验证码" type="number">
+                                <input class="flex1" name="sms_code" id="sms_code1" placeholder="短信验证码" type="number">
                             </div>
                             <input class="getCode"  onclick="getCodes1()" type="button" value="获取验证码">
                             <!-- <div class="getCode flex flexat" onclick="getCodes()">获取验证码</div> -->
@@ -98,7 +100,7 @@ $token = $_SESSION["sqsy_token"];
                                <input class="flex1" name="info[company]" id="company1" placeholder="请输入您的公司名称" type="text">
                            </div>
                        </div>
-                       <div class="pb2">
+                       <!--<div class="pb2">
                            <p>需求类型(可多选)：</p>
                            <div class="checkList flex flexwp chooseck">
                                <div class="ck flex flexat"><input class="checkbox" type="checkbox" name="info[requiretype][]" value="智能客服" class="checkbox"></input> 智能客服</div>
@@ -109,34 +111,35 @@ $token = $_SESSION["sqsy_token"];
                                <div class="ck flex flexat"><input class="checkbox" type="checkbox" name="info[requiretype][]" value="文本机器人" class="checkbox"></input> 文本机器人</div>
                                <div class="ck flex flexat"><input class="checkbox" type="checkbox" name="info[requiretype][]" value="工单系统" class="checkbox"></input> 工单系统</div>
                                <div class="ck flex flexat"><input class="checkbox" type="checkbox" name="info[requiretype][]" value="智能质检" class="checkbox"></input> 智能质检</div>
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 呼叫中心</div>-->
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 客服系统</div>-->
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 企微SCRM</div>-->
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 语音机器人</div>-->
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 文本机器人</div>-->
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 工单系统</div>-->
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 智能质检</div>-->
-<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 预留位置</div>-->
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 呼叫中心</div>
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 客服系统</div>
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 企微SCRM</div>
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 语音机器人</div>
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 文本机器人</div>
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 工单系统</div>
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 智能质检</div>
+<!--                               <div class="ck flex flexat"><span class="checkbox"></span> 预留位置</div>
                            </div>
                        </div>
                        <div class="inputTxt">
                            <input placeholder="其他需求..." name="orther_requiretype" type="text">
-                       </div>
+                       </div>-->
                        <div class="pt2">
                            <input type="hidden" name="dosubmit" value="1">
-                           <input class="submitsBtn" type="submit" value="立即提交申请">
+                           <input class="submitsBtn" type="submit" value="同意协议并提交">
                        </div>
                        <div class="checkList flex flexat pt2">
                             <div class="ck flex flexat" id="agree"><span class="checkbox"></span> 我已阅读并同意</div>
-                            <a class="colorlogo" href="">《天润融通隐私声明》</a>及<a class="colorlogo" href="">《用户协议》</a>
+                            <a class="colorlogo" href="/privacy/" target="_blank">《天润融通隐私声明》</a>及<a class="colorlogo" href="/agreement/" target="_blank">《用户协议》</a>
                        </div>
-                       <div class="color888 pt2">
+                       <!--<div class="color888 pt2">
                         我们将尽快联系您，请注意保持电话畅通。<br/>
                         如您着急对接，也可直接拨打服务热线：1010 9099
-                        </div>
+                        </div>-->
                     </form>
                 </div>
             </div>
+        </div>
         </div>
         {template "content","footer"}
 		<script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>

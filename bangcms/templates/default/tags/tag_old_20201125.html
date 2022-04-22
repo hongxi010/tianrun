@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+	<meta name="keywords" content="{$SEO['keyword']}">
+	<meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link href="{CSS_PATH}web/images/favicon.ico" type="image/x-icon" rel="shortcut icon"> 
+	<meta name="format-detection" content="telephone=yes" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<script src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+	<body>
+		{template "content","header"}
+		<div class="pageMain">
+	        {template "content","left"}
+			<div class="autowidth">
+				<div class="newsList paddingBot5">
+                
+					<div class="list" id="list{$s[listorder]}">
+						<a href="{$url}" class="pubicTit flex flexbt flexat paddingTop3 paddingBot3" title="总共有 {$total} 条记录">
+							<div class="flex_1 name flex flexat">
+								<img src="{CSS_PATH}web/images/a2.png"/>
+								<p class="font24 colorlogo lt10 rt20">{$tag}</p>
+								<img src="{CSS_PATH}web/images/a3.png"/>
+							</div>		
+						</a>                        
+						<dl class="newsList flex flexwp" id="news_list" data-page="{php echo max($page+1,2)}">
+{loop $tagdata $r}
+{php $v = get_artinfo($r[catid],$r[contentid]);}
+{php if($r[url]!=$v['url']) $r[url] = $v['url'];}
+{php $r[title] = $v['title'] ? $v['title'] : $r[title];}
+{php $r[inputtime] = $r[inputtime] ? $r[inputtime] : $v[inputtime];}
+{php $r[thumb] = $r[thumb] ? $r[thumb] : $v[thumb];}
+{php $r[description] = $r[description] ? $r[description] : $v[description];}
+							<dd class="list-box list-img-thum" id="art-{$r[id]}">
+								<a href="{$r[url]}">
+									<div class="scaleImg"><img src="{if $r[thumb]}{thumb($r[thumb],376,210)}{else}{APP_PATH}statics/images/thumb.jpg{/if}"/></div>
+									<div class="singleTxt font18 mt20 mb20">{$r[title]}</div>
+									<div class="color666 max2 mb10">{str_cut(strip_tags($r[description]),220)}</div>
+									<div class="flag font14 mb40">
+{php $keywords = explode(' ',$r[keywords]);}
+{loop $keywords $keyword}
+{if $keyword}
+                                    	<span>{$keyword}</span>
+{/if}
+{/loop}
+                                    </div>
+									<div class="flex flexbt font14 color888">
+										<span>{date('Y-m-d',$r[inputtime])}</span>
+                                        <span>{$r[copyfrom]}</span>
+									</div>
+								</a>
+							</dd>
+{/loop}
+						</dl>
+                        <div style="display:none;">{$pages}</div>
+						<a class="moreLook show-more" id="btn_loading" href="javascript:void(0);">加载更多</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+{template "content","footer"}
+<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+<script language="JavaScript" src="{APP_PATH}index.php?m=content&c=index&a=js&fm=tags&catid={$catid}&id={$id}&js=1&"+Math.random()></script>
+<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid=9999"></script>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+{php header('Content-type:text/json');}
+{php $data=array();}
+{loop $tagdata $r}
+{php $v = get_artinfo($r[catid],$r[contentid]);}
+{php if($r[url]!=$v['url']) $r[url] = $v['url'];}
+{php $r[title] = $v['title'] ? $v['title'] : $r['title'];}
+<?php
+		$r['thumb'] = $r['thumb'] ? $r['thumb'] : $v['thumb'];
+		if($r['thumb']){
+		    $r['thumb'] = thumb($r['thumb'],564,316);
+		}
+?>
+{php $r['title'] = str_replace($tag, '<font color=red>'.$tag.'</font>', $r['title']);}
+{php $r['addtime'] = $r['inputtime'] ? $r['inputtime'] : $v['inputtime'];}
+{php $r['description'] = str_replace($tag, '<font color=red>'.$tag.'</font>', $v['description']);}
+{php $data[$v['id']] = $r;}
+{/loop}
+{php echo json_encode($data);}

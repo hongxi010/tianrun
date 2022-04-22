@@ -48,12 +48,12 @@
 .section_4_flex .img{display: block;position: relative;}
 .section_4_flex .img .tit{position: absolute; left: 0;right: 0;bottom: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;background: rgba(0,0,0,.5);padding: .2rem;opacity: 0;}
 
-.section_4_flex .txt{display: block;padding: 20px 0;margin-bottom: 0;border-bottom: 1px solid #eee;}
+.section_4_flex .txt{display: block;padding: 15px 0;margin-bottom: 0;border-bottom: 1px solid #eee;}
 .newSwiper {height: 180px;}
-.newSwiper .swiper-slide{height: 50px !important;}
+.newSwiper .swiper-slide{height: 58px !important;}
 .newSwiper .swiper-slide .date{position: absolute;right: 0;bottom: 7px;background: #fff;padding-left: 2.5em;}
 .section_4_flex .txt:nth-last-child(1){border: 0}
-.moreBtn a{display: inline-block;border: 1px solid #ddd;padding: .1rem .3rem;border-radius: 1rem}
+.moreBtn a{display: inline-block;border: 1px solid #ddd;padding: .1rem .3rem;border-radius: .1rem}
 
 .section_5{background: #EBF3F9;}
 .section_5_left{width: 400px;padding-right: .4rem;margin-right: .4rem;border-right: 1px solid #ddd;max-width: 30%;}
@@ -70,7 +70,7 @@
 .hangye img{display: block;width: 100%;border-radius: .06rem;box-sizing: border-box;border: 1px solid #ddd;}
 
 @media only screen and (max-width:1366px) {
-    .section_4_flex .txt{padding: 10px 0;}
+    .section_4_flex .txt{padding: 18px 0;}
     .newSwiper {height: 140px;}
 }
 

@@ -8,7 +8,7 @@
                 <dd>
                     <div class="font18"><a href="">{$s[catname]}</a></div>
                     <div class="opacity8 font14">
-                  {pc:content action="lists" catid="$s[catid]" num="10" order="listorder ASC" moreinfo="1"  return="event6"}
+                  {pc:content action="lists" catid="$s[catid]" num="30" order="listorder ASC" moreinfo="1"  return="event6"}
 					{loop $event6 $e6}
                         <p><a href="{$e6[url]}">{$e6[title]}</a></p>
                   {/loop}
@@ -23,12 +23,12 @@
             <div class="flex1 yqlinks">
             {pc:content action="lists" catid="281"  num="200" order="listorder ASC" moreinfo="1"  return="event6"}
 				{loop $event6 $e6}
-                <a href="{$e6[url]}" target="_blank">{$e6[title]}</a> &nbsp;&nbsp;
+                <a href="{$e6[url]}" target="_blank">{$e6[title]}</a> 
                 {/loop}
 			   {/pc}
 
             </div>
-            <a class="lookMore" href="javascript:;" rel="nofollow"><span>查看更多</span> <i class="iconfont">&#xe610;</i></a>
+            <a class="lookMore" href="javascript:;" rel="nofollow"><span>更多</span> <i class="iconfont">&#xe610;</i></a>
           </div>
       </div>
       <div class="ewmCode">
@@ -63,7 +63,7 @@
 
            </div>
            <div class="flex flexBtn pt3 mpt2">
-               <a class="btn" href="/register/"><i class="iconfont">&#xe602;</i> 免费试用</a>
+               <a class="btn" href="/register/"><i class="iconfont">&#xe602;</i> 产品体验</a>
                <a class="btn" href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank"><i class="iconfont">&#xe630;</i> 在线咨询</a>
            </div>
       </div>
@@ -95,11 +95,11 @@
                 <div class="mfont12">咨询热线</div>
             </a>
             <div class="showNav">
-                <div class="font18 text">400-686-9091</div>
+                <div class="font18 text">1010 9099</div>
             </div>
         </dd>
         <dd>
-            <a href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank">
+           <a href="javascript:;" onclick="ClinkChatWeb.openSessionWindow()">
                 <i class="iconfont font30">&#xe61d;</i>
                 <div class="mfont12">在线咨询</div>
             </a>
@@ -145,3 +145,4 @@
         })
     })
 </script>
+<script>  (function(win, doc, src, opt) {    win[opt] = win[opt] || function () {    win[opt].options = arguments[0]};    var script = doc.createElement("script");    script.async = 1;    script.src = src;    doc.body.appendChild(script);  })(window, document, "https://webchat-bj.clink.cn/webchat.js?v="+Date.now(), "clinkWebchatOptions");    clinkWebchatOptions({      accessId: "29bc0a00-c025-45aa-8590-1073b0448c5b",      language: "zh_CN"    });</script>

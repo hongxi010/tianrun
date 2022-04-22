@@ -42,11 +42,8 @@
 
     <div class="cons animationDH animateRt current">
         <div class="banenrTit autowidth ">
-            <div class="font42 font700 mb3 mt9 colorfff ">{$li[title]}</div>
-            <div class="font18 colorfff height10 ">{$li[description]}</div>
-            <div class="publicBtn centers">
-                <a class="btn mr1" href="">了解更多 <i class="iconfont"></i></a>
-            </div>
+            <div class="font42 font700 mb3 mt9 colorfff centers">{$li[title]}</div>
+            <div class="font18 colorfff height10 centers">{$li[description]}</div>
         </div>
     </div>
 </div>
@@ -71,13 +68,12 @@
     {loop $list $li}
     <div class="whatMod">
         <div class="autowidth animationDH animateBt current">
-            <div class="font32 font700 mb3 centers">{$li[title]}</div>
-            <div class="font14 font400 mb6 centers">
+            <div class="font30 font700 mb3 centers">{$li[title]}</div>
+            <div class="font16 font400 mb6 centers">
                 {$li[content]}
             </div>
             <div class="publicBtn centers">
-                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -93,8 +89,8 @@
                 <li>
                     <img src="{$li[thumb]}" alt="{$li[title]}">
 
-                    <div class="font24 font400">{$li[title]}</div>
-                    <div class="font14 font400">
+                    <div class="font20 font400">{$li[title]}</div>
+                    <div class="font16 font400">
                         {$li[content]}
                     </div>
                 </li>
@@ -108,7 +104,7 @@
     <div class="section_d ">
         <div class="autowidth animationDH animateBt">
 
-            <div class="font32 font700 mb6 centers ">{$s[catname]}</div>
+            <div class="font30 font700 mb6 centers ">{$s[catname]}</div>
 
             <ul class="flex flexbt centers imgrotatetp1 ">
                 {pc:content action="lists" catid="$s[catid]" num="3" order="listorder ASC" moreinfo="1"  return="list"}
@@ -122,8 +118,7 @@
             </ul>
 
             <div class="publicBtn centers mt6">
-                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
             </div>
 
         </div>
@@ -132,7 +127,43 @@
 
     {/loop}
     {/pc}
-    {template "content","pro_nav"}
+    
+    
+   {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+    {loop $datas $s}
+    {if $s[listorder]==5}
+     {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+            {loop $event6 $e6}
+ 		<div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                <div class="font32 font700 mb6 centers">产品推荐</div>
+                <ul class="flex productRecommendIcons">
+               {pc:content action="category" catid="76"  order="listorder ASC"  return="items"}
+                {loop $items $q}
+                    {if $q[listorder]==$e6[pro_tj]} 
+                        {pc:content action="lists" catid="$q[catid]" num="5" order="listorder ASC" moreinfo="1"  return="event8"}
+                          {loop $event8 $e8}
+                        <li>
+                             <a href="{$e8[url]}"><img class="wt50" src="{$e8[thumb]}" alt="{$e8[title]}"></a>
+                             <div class="font20 font400 mt2"> <a href="{$e8[url]}">{$e8[title]} </a></div>
+                        </li>
+                          {/loop}
+                       {/pc}
+                  {/if}
+                {/loop}
+                {/pc}
+                </ul>
+            </div>
+        </div>
+ </div>
+  {/loop}
+         {/pc}
+     {/if}
+    {/loop}
+  {/pc}
+    
+    
+    
 </div>
 {template "content","footer"}
 <script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>

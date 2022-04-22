@@ -24,6 +24,12 @@ return array (
     'name' => '基本信息',
     'sort' => '0',
   ),
+  37 => 
+  array (
+    'typeid' => '68',
+    'name' => '产品推荐',
+    'sort' => '0',
+  ),
   1 => 
   array (
     'typeid' => '1',

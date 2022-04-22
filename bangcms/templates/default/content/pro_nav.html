@@ -1,39 +1,30 @@
- <div class="section_d">
+    {pc:content action="category" catid="$CAT[catid]"  order="listorder desc"  return="datas"}
+    {loop $datas $s}
+     {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+            {loop $event6 $e6}
+ 		<div class="section_d">
             <div class="autowidth animationDH animateBt">
-
-                <div class="font32 font700 mb6 centers">产品推荐</div>
-
+                <div class="font32 font700 mb6 centers">产品推荐{$CAT[catid]} {$s[catid]}</div>
                 <ul class="flex productRecommendIcons">
-                    <li>
-                        <a href="#"><img class="wt50" src="{CSS_PATH}web/images/b1-1.png" alt=""></a>
-                        <div class="font20 font400 mt2"><a href="#">智能客服</a></div>
-                        
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img class="wt50" src="{CSS_PATH}web/images/b1-2.png" alt=""></a>
-                            <div class="font20 font400 mt2"> <a href="#">呼叫中心 </a></div>
-                       
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img class="wt50" src="{CSS_PATH}web/images/b1-3.png" alt=""></a>
-                            <div class="font20 font400 mt2"> <a href="#">在线客服系统 </a></div>
-                       
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="wt50" src="{CSS_PATH}web/images/b1-4.png" alt="">  </a>
-                            <div class="font20 font400 mt2"> <a href="">工单系统</a></div>
-                      
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="wt50" src="{CSS_PATH}web/images/b1-5.png" alt=""> </a>
-                            <div class="font20 font400 mt2"><a href="">微信客服</a></div>
-                       
-                    </li>
+               {pc:content action="category" catid="76"  order="listorder ASC"  return="items"}
+                {loop $items $q}
+                    {if $q[listorder]==$e6[pro_tj]} 
+                        {pc:content action="lists" catid="$q[catid]" num="5" order="listorder ASC" moreinfo="1"  return="event8"}
+                          {loop $event8 $e8}
+                        <li>
+                             <a href="{$e8[url]}"><img class="wt50" src="{$e8[thumb]}" alt="{$e8[title]}"></a>
+                             <div class="font20 font400 mt2"> <a href="{$e8[url]}">{$e8[title]} </a></div>
+                        </li>
+                          {/loop}
+                       {/pc}
+                  {/if}
+                {/loop}
+                {/pc}
                 </ul>
             </div>
-        </div>
- </div>
+        	</div>
+ 		</div>
+  {/loop}
+         {/pc}
+    {/loop}
+  {/pc}

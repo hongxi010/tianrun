@@ -42,11 +42,11 @@
 
     <div class="cons animationDH animateRt">
         <div class="banenrTit autowidth ">
-            <div class="font42 font700 mb3 mt9 colorfff">{$e6[title]}</div>
+            <div class="font34 font700 mb3 colorfff">{$e6[title]}</div>
             <div class="font18 colorfff height10">{$e6[description]}</div>
             <div class="publicBtn">
-                <a class="btn mr1" href="../index/register.html">申请注册 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onClick="shiyong()">免费试用 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
+                <a class="btn btn2" href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank">在线咨询 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -59,10 +59,7 @@
 {/loop}
 {/pc}
 
-<!--面包屑-->
-<div class="autowidth pb6">
-{template "content","nav_link"}
-</div>
+
 <!--主体内容-->
 <div class="product">
     {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
@@ -74,13 +71,11 @@
     <div class="section_d">
         <div class="autowidth animationDH animateBt current">
             <div class="font32 font700 mb6 centers">{$e6[title]}</div>
-            <img src="{$e6[thumb]}" alt="{$e6[title]}">
             <div class="mb3 mt3">
                 {$e6[content]}
             </div>
             <div class="publicBtn centers mt6">
-                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onClick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
             </div>
         </div>
 
@@ -97,7 +92,7 @@
      {pc:content action="lists" catid="$s[catid]"  order="listorder ASC" moreinfo="1"  return="event6"}
         {loop $event6 $e6}
     <div class="section_d">
-       
+       <div class="font30 font700 mb6 centers">{$e6[title]}</div>
         <div class="autowidth animationDH animateBt current">
             <div class="imgTextMod">
                 <dl>
@@ -109,9 +104,8 @@
                             {$e6[content]}
                         </div>
 
-                        <div class="publicBtn centers mt6">
-                            <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                            <a class="btn btn2" href="javascript:;" onClick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                        <div class="publicBtn  mt6">
+                            <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
                         </div>
                     </dd>
                 </dl>
@@ -132,8 +126,7 @@
             <div class="font32 font700 mb3 centers colorfff">{$e6[title]}</div>
 
             <div class="publicBtn btns pt2 centers">
-                <a class="btn mr1" href="">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="">申请演示 <i class="iconfont"></i></a>
+                  <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -146,7 +139,38 @@
     </div>
 
 
-{template "content","pro_nav"}
+    {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+    {loop $datas $s}
+    {if $s[listorder]==5}
+     {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+            {loop $event6 $e6}
+ 		<div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                <div class="font32 font700 mb6 centers">产品推荐</div>
+                <ul class="flex productRecommendIcons">
+               {pc:content action="category" catid="76"  order="listorder ASC"  return="items"}
+                {loop $items $q}
+                    {if $q[listorder]==$e6[pro_tj]} 
+                        {pc:content action="lists" catid="$q[catid]" num="5" order="listorder ASC" moreinfo="1"  return="event8"}
+                          {loop $event8 $e8}
+                        <li>
+                             <a href="{$e8[url]}"><img class="wt50" src="{$e8[thumb]}" alt="{$e8[title]}"></a>
+                             <div class="font20 font400 mt2"> <a href="{$e8[url]}">{$e8[title]} </a></div>
+                        </li>
+                          {/loop}
+                       {/pc}
+                  {/if}
+                {/loop}
+                {/pc}
+                </ul>
+            </div>
+        </div>
+ </div>
+  {/loop}
+         {/pc}
+     {/if}
+    {/loop}
+  {/pc}
 {template "content","footer"}
 <script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
 <script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>

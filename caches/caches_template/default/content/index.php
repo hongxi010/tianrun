@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?php if(isset($SEO['title']) && !empty($SEO['title'])) { ?><?php echo $SEO['title'];?><?php } ?><?php echo $SEO['site_title'];?></title>
+    <title>呼叫中心系统_在线客服系统_智能机器人客服管理【天润融通】</title>
     <meta name="keywords" content="<?php echo $SEO['keyword'];?>">
     <meta name="description" content="<?php echo $SEO['description'];?>">
 	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
@@ -40,8 +40,8 @@
                                 <div class="colorfff mfont38 font500 pt3 pb3 dhy2"><?php echo $e6['title'];?></div>
                                 <div class="colorfff mfont20 pb8 dhy3"><?php echo $e6['description'];?></div>
                                 <div class="flex mfont20 dhy4">
-                                    <a class="btn btn1 font16" href="<?php echo $e6['url'];?>" rel="nofollow">了解详情 <i class="iconfont pl1">&#xe79c;</i></a>
-                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">申请演示 <i class="iconfont pl1">&#xe61e;</i></a>
+                                    <a class="btn btn1 font16" href="<?php echo $e6['url'];?>" rel="nofollow">产品体验 <i class="iconfont pl1">&#xe79c;</i></a>
+                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">在线咨询 <i class="iconfont pl1">&#xe61e;</i></a>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                                 <div class="colorfff mfont38 font500 pt3 pb3 dhy2"><?php echo $e6['title'];?></div>
                                 <div class="colorfff mfont20 pb8 dhy3"><?php echo $e6['description'];?></div>
                                 <div class="flex flexjt mfont20 dhy4">
-                                    <a class="btn btn1 font16" href="<?php echo $e6['url'];?>" rel="nofollow">了解详情 <i class="iconfont pl1">&#xe79c;</i></a>
-                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">申请演示 <i class="iconfont pl1">&#xe61e;</i></a>
+                                    <a class="btn btn1 font16" href="<?php echo $e6['url'];?>" rel="nofollow">产品体验 <i class="iconfont pl1">&#xe79c;</i></a>
+                                    <a class="btn btn2 font16" href="javascript:;" onClick="shiyong()" rel="nofollow">在线咨询 <i class="iconfont pl1">&#xe61e;</i></a>
                                 </div>
                             </div>
                         </div>
@@ -131,8 +131,8 @@
                    
                 </dl>
                 <div class="publicBtn centers pt4">
-                    <a class="btn mr1" href="../index/register.html" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
-                    <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
+                    <a class="btn mr1" href="/register/" rel="nofollow">产品体验 <i class="iconfont">&#xe6f2;</i></a>
+                    <a class="btn btn2" href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank">在线咨询 <i class="iconfont">&#xe62a;</i></a>
                 </div>
             </div>
         </div>
@@ -158,10 +158,10 @@
                             <div class="imgs"><img class="blockImg" src="<?php echo $e6['thumb'];?>" alt=""></div>
                             <div class="flex1 txt">
                                 <div class="font24 colorfff"><?php echo $e6['description'];?></div>
-                                <div class="colorfff opacity5 pt3"><?php echo $e6['content'];?></div>
+                                <div class="colorfff  pt3"><?php echo $e6['content'];?></div>
                                 <div class="publicBtn btns pt2">
-                                    <a class="btn mr1" href="../about/index.html">了解我们</a>
-                                    <a class="btn btn2" href="../about/contact.html">联系我们</a>
+                                    <a class="btn mr1" href="<?php echo $e6['url'];?>">了解详情 <i class="iconfont">&#xe79c;</i></a>
+                                    <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">在线咨询 <i class="iconfont pl1">&#xe61e;</i></a>
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b0b1045b1277e838686e31562c1f516f&action=category&catid=164&order=listorder+ASC&return=datas\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {global $datas; $datas = $content_tag->category(array('catid'=>'164','order'=>'listorder ASC','limit'=>'20',));}?>
 			<?php $n=1;if(is_array($datas)) foreach($datas AS $s) { ?>
 				<?php if($s[listorder]==1) { ?> 
-                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=a843ca229cb57146eab9909842b56c11&action=lists&catid=%24s%5Bcatid%5D&num=12&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'12',));}?>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=c45461f140208040a6b34c3ae8015815&action=lists&catid=%24s%5Bcatid%5D&num=15&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'15',));}?>
 					<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
                     <dd class="on"><?php echo $e6['title'];?></dd>
                   <?php $n++;}unset($n); ?>
@@ -197,12 +197,16 @@
              <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b0b1045b1277e838686e31562c1f516f&action=category&catid=164&order=listorder+ASC&return=datas\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {global $datas; $datas = $content_tag->category(array('catid'=>'164','order'=>'listorder ASC','limit'=>'20',));}?>
 			<?php $n=1;if(is_array($datas)) foreach($datas AS $s) { ?>
 				<?php if($s[listorder]==1) { ?> 
-                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=a843ca229cb57146eab9909842b56c11&action=lists&catid=%24s%5Bcatid%5D&num=12&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'12',));}?>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=c45461f140208040a6b34c3ae8015815&action=lists&catid=%24s%5Bcatid%5D&num=15&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'15',));}?>
 					<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>                           
                             <dd class="on">
                                 <div class="font30 font700 pb2"><?php echo $e6['title'];?></div>
                                 <div class="font16 color888">
 									 <?php echo $e6['content'];?>
+                                </div>
+                                
+                                <div class="publicBtn pt5 mpt2">
+                               	 <a class="btn mr1" href="<?php echo $e6['url'];?>">了解详情 <i class="iconfont">&#xe6f2;</i> </a>
                                 </div>
                             </dd>
                   <?php $n++;}unset($n); ?>
@@ -211,9 +215,7 @@
 	    <?php $n++;}unset($n); ?>
 	 	<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                         </dl>
-                        <div class="publicBtn pt5 mpt2">
-                            <a class="btn mr1" href="../index/register.html" rel="nofollow">申请注册 <i class="iconfont">&#xe79c;</i></a>
-                        </div>
+
                     </div>
                     <div class="flex1">
                         <div class="swiper-container hangye">
@@ -221,10 +223,14 @@
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b0b1045b1277e838686e31562c1f516f&action=category&catid=164&order=listorder+ASC&return=datas\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {global $datas; $datas = $content_tag->category(array('catid'=>'164','order'=>'listorder ASC','limit'=>'20',));}?>
 			<?php $n=1;if(is_array($datas)) foreach($datas AS $s) { ?>
 				<?php if($s[listorder]==2) { ?> 
-                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=fcdba4084572e31e553cd5b6e12ede80&action=lists&catid=%24s%5Bcatid%5D&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'20',));}?>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=029d34a3912601d3a17cca96a81e445e&action=lists&catid=%24s%5Bcatid%5D&num=300&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'300',));}?>
 					<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>                            
                                 <div class="swiper-slide">
+                                <?php if($e6[url]==1) { ?>
                                     <img src="<?php echo $e6['thumb'];?>" alt="<?php echo $e6['title'];?>">
+                                <?php } else { ?>
+                                    <a href="<?php echo $e6['url'];?>"><img src="<?php echo $e6['thumb'];?>" alt="<?php echo $e6['title'];?>"></a>
+                                <?php } ?>
                                 </div>
                   <?php $n++;}unset($n); ?>
 			   <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
@@ -258,10 +264,10 @@
                   <?php $n++;}unset($n); ?>
 			   <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                 </dl>
-                <div class="publicBtn centers pt2">
-                    <a class="btn mr1" href="../index/register.html" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
+                <!--<div class="publicBtn centers pt2">
+                    <a class="btn mr1" href="/register/" rel="nofollow">申请注册 <i class="iconfont">&#xe6f2;</i></a>
                     <a class="btn btn2" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用 <i class="iconfont">&#xe62a;</i></a>
-                </div>
+                </div>-->
             </div>
         </div>
         
@@ -276,7 +282,7 @@
             			<?php $n=1; if(is_array($data)) foreach($data AS $key => $e6) { ?>
                        <div class="img">
                            <div class="scaleImg"><a href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><img src="<?php echo CSS_PATH;?>web/images/a2.jpg" alt="<?php echo $e6['title'];?>"></a></div>
-                           <div class="tit colorfff font18"><a  href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><?php echo $e6['title'];?></a></div>
+                           <div class="tit colorfff "><a  href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><?php echo $e6['title'];?></a></div>
                        </div>
                      <?php $n++;}unset($n); ?>
 			      <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?> 
@@ -286,8 +292,9 @@
 					<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
 
                         <div class="txt" >
-                           <div class="max2 font18 color666"><a href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><?php echo str_cut($e6['title'],70);?></a></div>
+                           <div class="max2  color666"><a href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><?php echo str_cut($e6['title'],60);?></a></div>
                            <div class="font14 pt1"><?php echo date('Y-m-d', $e6['inputtime']);?></div>
+                           
                         </div>
                      <?php $n++;}unset($n); ?>
 			      <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
@@ -296,7 +303,7 @@
                     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=6ba1fb0fa9d7a825dde0ff425f8a3f7d&action=lists&catid=31&num=5&order=listorder+desc%2Cinputtime+desc&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>'31','order'=>'listorder desc,inputtime desc','moreinfo'=>'1','limit'=>'5',));}?>
 					<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
                      <?php $k++?> 
-					<?php if($k>4) { ?> 
+					<?php if($k==5) { ?> 
                         <div class="img mb1" >
                             <div class="scaleImg"><a href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><img src="<?php echo CSS_PATH;?>web/images/a1.jpg" alt="<?php echo $e6['title'];?>"></a></div>
                             <div class="tit colorfff"><a  href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><?php echo $e6['title'];?></a></div>
@@ -310,7 +317,7 @@
                   <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=48080191de9af1e15bda8bba5bb363a6&action=lists&catid=282%2C283&num=10&order=listorder+desc&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>'282,283','order'=>'listorder desc','moreinfo'=>'1','limit'=>'10',));}?>
 					<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>             
                                     <div class="swiper-slide txt">
-                                        <div class="max2 font18"><a href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><?php echo str_cut($e6['title'],60);?></a></div>
+                                        <div class="max2 "><a href="<?php echo $e6['url'];?>" title="<?php echo $e6['title'];?>"><?php echo str_cut($e6['title'],60);?></a></div>
                                         <div class="date font14"><?php echo date('Y-m-d', $e6['inputtime']);?></div>
                                     </div>
                      <?php $n++;}unset($n); ?>
@@ -322,7 +329,7 @@
                    </div>
                 </div>
                 <div class="centers moreBtn pt2">
-                    <a class="font18 color888" href="#" rel="nofollow">查看更多</a>
+                    <a class="font18 color888" href="/news/" rel="nofollow">查看更多 <i class="iconfont">&#xe79c;</i></a>
                 </div>
             </div>
         </div>
@@ -332,7 +339,7 @@
             <div class=" animationDH animateBt">
                 <div class="font24 colorfff"><?php echo $e6['title'];?></div>
                 <div class="font24 colorfff pt1"><?php echo $e6['entitle'];?></div>
-                <div class="pt2"><a class="sy font18" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用</a></div>
+                <div class="pt2"><a class="sy font18" href="javascript:;" onClick="shiyong()" rel="nofollow">立即试用  <i class="iconfont">&#xe62a;</i></a></div>
             </div>
         </div>
             <?php $n++;}unset($n); ?>
@@ -368,7 +375,7 @@
                     speed:800,
                     slidesPerView :1,
                     autoplay:{
-                        delay: 5000,
+                        delay: 6000,
                         disableOnInteraction: false
                     },
                     pagination: {

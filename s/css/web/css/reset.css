@@ -9,7 +9,7 @@ ol,li,ul{list-style: none;}
 table{border-collapse:collapse;word-wrap:break-word; }
 :link, :visited , ins {text-decoration: none;}
 html{font-size: calc(100 * 100vw / 1920);}
-body{ font-family:"Microsoft YaHei","Noto Sans SC","Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;font-size: 16px;font-weight: 400; color: #3F4552; line-height: 1.6; overflow-x: hidden;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-align: justify;} 
+body{ font-family:"PingFang SC","Hiragino Sans GB","\5FAE\8F6F\96C5\9ED1","Microsoft Yahei",tahoma,arial,"\5B8B\4F53", sans-serif;font-size: 16px;font-weight: 400; color: #3F4552; line-height: 1.8; overflow-x: hidden;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-align: justify;} 
 a{color:inherit;}
 img{vertical-align: middle;max-width: 100%;}
 @font-face {
@@ -73,7 +73,7 @@ img{vertical-align: middle;max-width: 100%;}
 .opacity3{opacity: .3;}
 .opacity4{opacity: .4;}
 .opacity5{opacity: .5;}
-.opacity6{opacity: .6;}
+.opacity6{opacity: .8;}
 .opacity7{opacity: .7;}
 .opacity8{opacity: .8;}
 .opacity9{opacity: .9;}
@@ -229,6 +229,7 @@ img{vertical-align: middle;max-width: 100%;}
 .flexThree::after{content: '';width: 31.33%;}
 .flexFour{width: 102%;}
 .flexFour dd{width: 23%;margin: 0 2% 2% 0;}
+.box_bg{box-shadow:0px 0.03rem 0.16rem rgb(0 0 0 / 6%)}
 
 .aLink{display: block;}
 .overflowY{ overflow-y: auto;}

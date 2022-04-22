@@ -42,11 +42,11 @@
 
     <div class="cons animationDH animateRt">
         <div class="banenrTit autowidth ">
-            <div class="font42 font700 mb3 mt9 colorfff">{$li[title]}</div>
+            <div class="font34 font700 mb3 colorfff">{$li[title]}</div>
             <div class="font18 colorfff height10">{$li[description]}</div>
             <div class="publicBtn">
-                <a class="btn mr1" href="../index/register.html">申请注册 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onClick="shiyong()">免费试用 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
+                <a class="btn btn2" href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank">在线咨询 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -57,10 +57,6 @@
 {/loop}
 {/pc}
 
-<!--面包屑-->
-<div class="autowidth pb6">
-{template "content","nav_link"}
-</div>
 <!--主体内容-->
 <div class="product">
     {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
@@ -71,22 +67,22 @@
     <div class="section_d">
         <div class="autowidth animationDH animateBt current">
 
-            <div class="font32 font700 mb6 centers">{$s[catname]}</div>
+            <div class="font30 font700 mb6 centers">{$s[catname]}</div>
             <ul class="flex flexbt centers imglistanimate">
                 {pc:content action="lists" catid="$s[catid]" num="3" order="listorder ASC" moreinfo="1"  return="list"}
                 {loop $list $li}
                 <li class=" w31 lib1p2">
                     <div class="imgbox">
-                        <img src="{$li[thumb]}" alt="{$li[title]}">
+                        <img class="w6rem" src="{$li[thumb]}" alt="{$li[title]}">
                     </div>
-                    <div class="font16 font400 color3F4552 opacity6">{$li[description]}</div>
+                    <div class="font16 font400 color3F4552 opacity6">{$li[content]}</div>
                 </li>
                 {/loop}
                 {/pc}
 
             </ul>
             <div class="publicBtn centers mt6 ">
-                <a class="btn mr1" href="">了解更多 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -95,7 +91,7 @@
     <div class="section_d bgc">
         <div class="autowidth animationDH animateBt current">
 
-            <div class="font32 font700 mb6 centers"> </div>
+            <div class="font30 font700 mb6 centers"> {$s[catname]}</div>
 
             <ul class="flex flexwp flexbt  centers font18 imgrotatetp2 ">
                 {pc:content action="lists" catid="$s[catid]" num="3" order="listorder ASC" moreinfo="1"  return="list"}
@@ -103,14 +99,13 @@
                 <li class=" w31 lib1p2 mb3 ">
                     <img class="w6rem" src="{$li[thumb]}" alt="{$li[title]}">
                     <div class="mt3 font18">{$li[title]}</div>
-                    <div class="mt1 font16 opacity6">{$li[description]}</div>
+                    <div class="mt1 font16 opacity6">{$li[content]}</div>
                 </li>
                 {/loop}
                 {/pc}
             </ul>
             <div class="publicBtn centers  mt3">
-                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onClick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -122,23 +117,28 @@
 
             {pc:content action="category" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="subdatas"}
             {loop $subdatas $subs}
-            <div class="font32 font700 mb6 centers">{$s[catname]} </div>
+            <div class="font30 font700 mb6 centers">{$s[catname]} </div>
 
-            <ul class="flex flexwp flexbt  centers font18 font700 imgrotatetp2">
+            <ul class="flex flexwp flexbt  centers font18 font700 imgrotatetp2 newTypeOne">
                 {pc:content action="lists" catid="$subs[catid]" num="50" order="listorder ASC" moreinfo="1"  return="list"}
                 {loop $list $li}
-                <li class="w24 mb3  bg01AF8A boradius16 pt6 pb6">
-                    <img  class="w6rem"  src="{$li[thumb]}" alt="{$li[title]}">
-                    <div class="mt3 colorfff">{$li[title]}</div>
-                </li>
+              
+                    <li class="w24 mb3  bg01AF8A boradius16 pt6 pb6">
+                        <img  class="w6rem"  src="{$li[thumb]}" alt="{$li[title]}">
+                        <div class="mt3 colorfff">{$li[title]}</div>
+                        <div class="mask">
+                            <div class=" mt1 font18 colorfff font700">{$li[title]}</div>
+                            <div class="mt1 font14  colorfff">{$li[content]}</div>
+                   	 </div>
+                    </li>
+
                 {/loop}
                 {/pc}
 
 
             </ul>
             <div class="publicBtn centers  mt3">
-                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onClick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
             </div>
             {/loop}
             {/pc}
@@ -147,11 +147,12 @@
     {/if}
 
     {if $s[listorder]==5}
+     {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
     <div class="section_d bgc">
-        {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="list"}
+       
         {loop $list $li}
         <div class="autowidth animationDH animateBt">
-            <div class="font32 font700 mb6 centers">{$li[title]}</div>
+            <div class="font30 font700 mb6 centers">{$li[title]}</div>
             <div class="imgTextMod">
                 <dl>
                     <dt class="dtImg">
@@ -162,9 +163,8 @@
                             {$li[content]}
                         </div>
 
-                        <div class="publicBtn centers mt6">
-                            <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                            <a class="btn btn2" href="javascript:;" onClick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                        <div class="publicBtn  mt6">
+                            <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
                         </div>
 
                     </dd>
@@ -173,8 +173,9 @@
 
         </div>
         {/loop}
-        {/pc}
+        
     </div>
+    {/pc}
     {/if}
 
     {if $s[listorder]==6}
@@ -193,9 +194,8 @@
                             {$li[content]}
                         </div>
 
-                        <div class="publicBtn centers mt6">
-                            <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                            <a class="btn btn2" href="javascript:;" onClick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                        <div class="publicBtn  mt6">
+                            <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
                         </div>
 
                     </dd>
@@ -213,12 +213,12 @@
 
         <div class="autowidth animationDH animateBt">
 
-            <div class="font32 font700 mb6 centers">{$s[catname]}</div>
+            <div class="font30 font700 mb6 centers">{$s[catname]}</div>
 
             <ul class="flex flexwp flexbt font18">
                 {pc:content action="lists" catid="$s[catid]" num="50" order="listorder ASC" moreinfo="1"  return="list"}
                 {loop $list $li}
-                <li class="w15 flex flexjt flexat height64 bgfff mb3">{$li[title]}</li>
+                <li class="w15 flex flexjt flexat height64 box_bg bgfff mb3">{$li[title]}</li>
                 {/loop}
                 {/pc}
             </ul>
@@ -235,7 +235,39 @@
     </div>
 
 
-{template "content","pro_nav"}
+    {pc:content action="category" catid="$CAT[catid]"  order="listorder ASC"  return="datas"}
+    {loop $datas $s}
+    {if $s[listorder]==9}
+     {pc:content action="lists" catid="$s[catid]" num="1" order="listorder ASC" moreinfo="1"  return="event6"}
+            {loop $event6 $e6}
+ 		<div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                <div class="font32 font700 mb6 centers">产品推荐</div>
+                <ul class="flex productRecommendIcons">
+               {pc:content action="category" catid="76"  order="listorder ASC"  return="items"}
+                {loop $items $q}
+                    {if $q[listorder]==$e6[pro_tj]} 
+                        {pc:content action="lists" catid="$q[catid]" num="5" order="listorder ASC" moreinfo="1"  return="event8"}
+                          {loop $event8 $e8}
+                        <li>
+                             <a href="{$e8[url]}"><img class="wt50" src="{$e8[thumb]}" alt="{$e8[title]}"></a>
+                             <div class="font20 font400 mt2"> <a href="{$e8[url]}">{$e8[title]} </a></div>
+                        </li>
+                          {/loop}
+                       {/pc}
+                  {/if}
+                {/loop}
+                {/pc}
+                </ul>
+            </div>
+        </div>
+ </div>
+  {/loop}
+         {/pc}
+     {/if}
+    {/loop}
+  {/pc}
+  
 {template "content","footer"}
 <script type="text/javascript" src="{CSS_PATH}web/js/swiper.min.js" ></script>
 <script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>

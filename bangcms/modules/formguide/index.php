@@ -145,11 +145,21 @@ class index {
     public function varyCode($mobile,$code){
 //        echo json_encode($_SESSION);exit;
         if (isset($_SESSION['expire_'.$mobile]) && $_SESSION['expire_'.$mobile]>time() && isset($_SESSION['sms_'.$code]) && $_SESSION['sms_'.$code] == $mobile){
-            unset($_SESSION['expire_'.$mobile]);
-            unset($_SESSION['sms_'.$code]);
+//            $this->clearVcode($mobile,$code);
             return true;
         }
         return false;
+    }
+
+    /**
+     * 清除验证码
+     * @param $mobile
+     * @param $code
+     * @return void
+     */
+    public function clearVcode($mobile,$code){
+        unset($_SESSION['expire_'.$mobile]);
+        unset($_SESSION['sms_'.$code]);
     }
     /**
      * 获取hmac_sha1签名的值
@@ -241,39 +251,94 @@ class index {
         $realip = ! empty ( $onlineip [0] ) ? $onlineip [0] : '0.0.0.0';
         return $realip;
     }
+    private function getUrl(){
+        $http = (isset ( $_SERVER ['HTTPS'] ) && $_SERVER ['HTTPS'] != 'off') ? 'https://' : 'http://';
+        return $http . $_SERVER ['HTTP_HOST'] . $_SERVER ['REQUEST_URI'];
+    }
+    private function getDomain(){
+        $http = (isset ( $_SERVER ['HTTPS'] ) && $_SERVER ['HTTPS'] != 'off') ? 'https://' : 'http://';
+        return $http . $_SERVER ['HTTP_HOST'];// . $_SERVER ['REQUEST_PORT'];
+    }
+    private function getHttp(){
+        $http = (isset ( $_SERVER ['HTTPS'] ) && $_SERVER ['HTTPS'] != 'off') ? 'https://' : 'http://';
+        return $http;
+    }
     /**
      * 发送手机验证码
      * @return void
      */
     public function getVcode(){
+        if (!isset($_POST) || !$_POST['mobile']){
+            exit('访问方式错误');
+        }
+//        exit($_SERVER["HTTP_REFERER"]);
+//        exit($this->getRealIp());
+        if (!isset($_SERVER["HTTP_REFERER"]) || !$_SERVER["HTTP_REFERER"]){
+            exit('不要徒劳');
+        }
+        if (!isset($_SESSION)){
+            exit('非法访问');
+        }
+//        exit(json_encode($_SESSION));
+//        exit($_SERVER["HTTP_REFERER"]);
+        $refer = $_SERVER["HTTP_REFERER"];
+        $refer = explode($this->getHttp(),$refer);
+        $refer[0] = explode('/',$refer[1]);
+        if (!isset($refer[0][0])){
+            exit('非法访问');
+        }
+        $_refer = $this->getHttp().$refer[0][0];
+//        exit($this->getDomain());
+        if ($_refer!=$this->getDomain()){
+            exit('非法访问');
+        }
 //        $_SESSION['sms_token_sendtimes_'.$_SESSION['sms_token']] = isset($_SESSION['sms_token_sendtimes_'.$_SESSION['sms_token']]) ? $_SESSION['sms_token_sendtimes_'.$_SESSION['sms_token']] : 0;
 
-        $mobile = isset($_POST['mobile']) ? $_POST['mobile']:'';
+        $mobile = isset($_POST['mobile']) ? trim($_POST['mobile']):'';
         if (!$mobile){
             exit(L('no_mobile'));
         }
         if (!$this->isMobile($_POST['mobile'])){
             exit('非法手机号');
         }
-        $mobilelimitkey = md5($mobile.date('Ymd'));
-        $_SESSION[$mobilelimitkey] = isset($_SESSION[$mobilelimitkey]) ? $_SESSION[$mobilelimitkey] + 1: 1;
-        if ($_SESSION[$mobilelimitkey]>=5){
-            exit('同一个手机号，一天只能请求5次验证码');
-        }
-        $ip = $this->getRealIp();
-        $iplimitkey = md5($ip.date('Ymd'));
-        $_SESSION[$iplimitkey] = isset($_SESSION[$iplimitkey]) ? $_SESSION[$iplimitkey] + 1: 1;
-        if ($_SESSION[$iplimitkey]>=10){
-            exit('同一个ip，一天只能请求10次验证码');
-        }
-        if (isset($_SESSION['sms_send_time_'.$mobile])){
-            if ($_SESSION['sms_send_time_'.$mobile] + 60 > time()){
+        $limitSendTimesKey = 'sms_send_times_'.$mobile;
+        $limitSendTimesCache = getcache($limitSendTimesKey,'limit');
+        if ($limitSendTimesCache){
+            if ($limitSendTimesCache + 60 > time()){
                 exit('一分钟内只能发送一次验证码');
-            }else{
-                unset($_SESSION['sms_send_time_'.$mobile]);
             }
+        }else{
+            setcache($limitSendTimesKey,time(),'limit');
         }
-        $_SESSION['sms_send_time_'.$mobile]  = time();
+        setcache($limitSendTimesKey,time(),'limit');
+        $mobilelimitkey = 'limit_mobiles_'.md5($mobile.date('Ymd'));
+//        $_SESSION[$mobilelimitkey] = isset($_SESSION[$mobilelimitkey]) ? $_SESSION[$mobilelimitkey] + 1: 1;
+        $mobilelimitkeyCache = getcache($mobilelimitkey,'limit');
+        if ($mobilelimitkeyCache && $mobilelimitkeyCache >= 10){
+            exit('同一个手机号，一天只能请求10次验证码');
+        }else{
+            $mobilelimitkeyCache = 1;
+        }
+        $mobilelimitkeyCache++;
+        setcache($mobilelimitkey,$mobilelimitkeyCache,'limit');
+//        if (!isset($_SESSION[$mobilelimitkey]) || $_SESSION[$mobilelimitkey]>=10){
+////            exit('同一个手机号，一天只能请求10次验证码');
+//        }
+        $ip = $this->getRealIp();
+        $iplimitkey = 'limit_ips_'.md5($ip.date('Ymd'));
+        $_SESSION[$iplimitkey] = isset($_SESSION[$iplimitkey]) ? $_SESSION[$iplimitkey] + 1: 1;
+        $iplimitkeyCache = getcache($iplimitkey,'limit');
+        if ($iplimitkeyCache && $iplimitkeyCache >= 20){
+            exit('同一个ip，一天只能请求20次验证码');
+        }else{
+            $iplimitkeyCache = 1;
+        }
+        $iplimitkeyCache++;
+        setcache($iplimitkey,$iplimitkeyCache,'limit');
+//        if (!isset($_SESSION[$mobilelimitkey]) || $_SESSION[$iplimitkey]>=20){
+//            exit('同一个ip，一天只能请求20次验证码');
+//        }
+
         /*
         $token = isset($_POST['token']) ? $_POST['token']:'';
         if (!$token){
@@ -306,7 +371,6 @@ class index {
         $url .= '&Signature='.$Signature;
 
 //        echo $url;exit;
-//        echo "\n";
         $sendBody = [
             'cno'=>'1119',
             'tel'=>$mobile,
@@ -319,7 +383,9 @@ class index {
 //        echo json_encode($_SESSION[$mobile]);exit;
         $sendStatus=$this->http_post2($url,$sendHeader,json_encode($sendBody));
 //        echo $sendStatus;exit;
-        $_SESSION['sms_send_time_'.$mobile] = isset($_SESSION['sms_send_time_'.$mobile]) ? $_SESSION['sms_send_time_'.$mobile] :  time();
+
+
+
         echo 'yes';
         exit;
     }
@@ -472,15 +538,7 @@ class index {
 
             }
 //            echo json_encode(['post'=>$_POST,'formid'=>$formid]);exit;
-            if ($formid==35 || $formid==36){
-                //手机验证码
-                if (!$this->varyCode($_POST['info']['tel'],$_POST['sms_code'])){
-                    if ($formid==36 || $formid==35){
-                        exit(L('sms_code_error'));
-                    }
-                }
 
-            }
 
 			$data = array();
 			require CACHE_MODEL_PATH.'formguide_input.class.php';
@@ -507,6 +565,16 @@ class index {
                 }
             }
 
+            if ($formid==35 || $formid==36){
+
+                //手机验证码
+                if (!$this->varyCode(trim($_POST['info']['tel']),trim($_POST['sms_code']))){
+                    if ($formid==36 || $formid==35){
+                        exit(L('sms_code_error'));
+                    }
+                }
+
+            }
 			$dataid = $this->m_db->insert($data, true);
 			if ($dataid) {
                 setcache($key,1,'apply');
@@ -528,6 +596,7 @@ class index {
                     //创建工单
 //                    $workflow='{"workflowId":2585,"level":3,"handlerType":1,"handlerId":244,"stateSelected":"处理中","form":{"id":20908,"name:":"线索客户注册","fields":[{"id":191885,"name":"手机号码","type":1,"required":0,"value":"18131873993"},{"id":6976,"name":"客户名称","type":1,"required":1,"value":"测试"},{"id":191886,"name":"委公司名称","type":1,"required":1,"value":"天润"},{"id":191887,"name":"需求类型","type":10,"required":1,"value":"智能客服,文本机器人"}]}}';
                     $this->sendWorkFlow($_POST['info']);
+                    $this->clearVcode(trim($_POST['info']['tel']), trim($_POST['sms_code']));
 //                echo 'yes';exit;
                     exit('yes');
                 }

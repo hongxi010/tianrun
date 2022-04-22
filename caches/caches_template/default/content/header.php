@@ -15,7 +15,7 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
 <link rel="stylesheet" href="<?php echo CSS_PATH;?>web/css/page.css" />
 <div class="header">
    <div class="autowidth flex flexat flexbt">
-       <a class="logo flex flexat" href="/"><div class="flex flexat"><img src="<?php echo CSS_PATH;?>web/images/logo.png" alt="天润"></div><div class="daima colorfff"><p>股票代码</p><p>8888</p></div></a>
+       <a class="logo flex flexat" href="/"><div class="flex flexat"><img src="<?php echo CSS_PATH;?>web/images/logo.png" alt="天润融通"></div><div class="daima colorfff"><p></p><p></p></div></a>
 <div class="flex1 navFlex">
            <dl class="flex flexend headNav">
                <dd><a href="/">首页</a></dd>
@@ -30,12 +30,12 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=4f8b154e073b6f17fe39e504f49b08b3&action=category&catid=%24s%5Bcatid%5D&order=listorder+ASC&return=data2\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {global $data2; $data2 = $content_tag->category(array('catid'=>$s[catid],'order'=>'listorder ASC','limit'=>'20',));}?>
                   			<?php $n=1;if(is_array($data2)) foreach($data2 AS $r2) { ?>
                                <li>
-                                   <div class="tit font20 pb1 font700"><?php echo $r2['catname'];?></div>
+                                   <div class="tit font20 pb1 font700 colorlogo"><img src="<?php echo $r2['image'];?>" style="width:20px; margin-right:5px"> <?php echo $r2['catname'];?></div>
                                    <div class="links pt2">
                                    <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=cc9fafcf35c0b41a62c87e767b28c050&action=lists&catid=%24r2%5Bcatid%5D&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$r2[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'20',));}?>
 									<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
                                         <div class="flex flexat flexwp pb1">
-                                           <span class="name"><a href="<?php echo $e6['url'];?>"><?php echo $e6['title'];?></a></span>  <?php if($e6[allow_comment]==1) { ?> <span class="hotFlag">HOT</span><?php } elseif ($e6[allow_comment]==2) { ?><span class="newFlag">NEW</span><?php } ?>
+                                          <span class="name"><a href="<?php echo $e6['url'];?>"><?php echo $e6['title'];?></a></span>  <?php if($e6[allow_comment]==1) { ?> <span class="hotFlag">HOT</span><?php } elseif ($e6[allow_comment]==2) { ?><span class="newFlag">NEW</span><?php } ?>
                                         </div>
 									<?php $n++;}unset($n); ?>
                 					<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
@@ -47,7 +47,7 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                        </div>
                    </div>
           <?php } elseif ($s[listorder]==2) { ?>       
-                <dd>
+                <dd <?php if($CAT[catid]==17) { ?>class="on"<?php } ?><?php if($CAT[parentid]==17) { ?>class="on"<?php } ?>>
                    <a href="/solution/"><?php echo $s['catname'];?> <i class="iconfont">&#xe610;</i></a>
                    <div class="slideNav">
                         <div class="autowidth">
@@ -58,9 +58,9 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                                 <li>
                                     <div class="tit font20 pb1 font700"><a href="/solution/#<?php echo $k;?>"><?php echo $r2['catname'];?></a></div>
                                     <div class="links flex flexwp">
-                                     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=ef20153c3f29f822f504baa957086c5d&action=lists&catid=%24r2%5Bcatid%5D&num=10&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$r2[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'10',));}?>
+                                     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=cfc827d6deee962a812369c5c1811e1a&action=lists&catid=%24r2%5Bcatid%5D&num=30&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$r2[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'30',));}?>
 										<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
-                                        <div class="flex flexat flexwp lin"><span class="name"><a href="<?php echo $e6['url'];?>"><?php echo $e6['title'];?></a></span></div>
+                                        <div class="flex flexat flexwp lin<?php echo $k;?>"><img src="<?php echo $e6['pic_001'];?>" style="width:18px;"><span class="name"><a href="<?php echo $e6['url'];?>"><?php echo $e6['title'];?></a></span></div>
 										<?php $n++;}unset($n); ?>
                 					<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                                     </div>
@@ -73,20 +73,9 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                 </dd>
                <?php } elseif ($s[listorder]==3) { ?>     
                <dd <?php if($CAT[catid]==18) { ?>class="on"<?php } ?><?php if($CAT[parentid]==18) { ?>class="on"<?php } ?>><a href="<?php echo $s['url'];?>"><?php echo $s['catname'];?></a></dd>
-               <?php } elseif ($s[listorder]==4) { ?>   
-               <dd class="position2 <?php if($CAT[catid]==101) { ?>on<?php } ?>">
-                   <a href="<?php echo $s['url'];?>"><?php echo $s['catname'];?> <i class="iconfont">&#xe610;</i></a>
-                   <div class="slideNav">
-                       <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b492c603290fd6de2c71027b7a82266e&action=lists&catid=%24s%5Bcatid%5D&num=10&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'10',));}?>
-						<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
-                       <div class="link"><a href="<?php echo $e6['url'];?>"><?php echo $e6['title'];?></a></div>
-                       	 <?php $n++;}unset($n); ?>
-                	<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
-                   </div>
-                </dd>
-               <?php } elseif ($s[listorder]==5) { ?>    
+               <?php } elseif ($s[listorder]==4) { ?>    
                <dd class="position2">
-                    <a href="<?php echo $s['url'];?>"><?php echo $s['catname'];?> <i class="iconfont">&#xe610;</i></a>
+                    <a href="/about/"><?php echo $s['catname'];?> <i class="iconfont">&#xe610;</i></a>
                     <div class="slideNav">
                     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b492c603290fd6de2c71027b7a82266e&action=lists&catid=%24s%5Bcatid%5D&num=10&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'10',));}?>
 						<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
@@ -101,11 +90,11 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
               
            </dl>
        </div>
-       <a href="tel:4000-888-888" class="flex flexat zixun colorfff">
+       <a href="tel:400-686-9091" class="flex flexat zixun colorfff">
            <i class="iconfont pr1">&#xe744;</i>
-           <span href="">咨询：4000-888-888</span>
+           <span href="">咨询：1010 9099</span>
        </a>
-       <div class="publicBtn2 ml2"><a class="btn mr1" href="../index/register.html" rel="nofollow">免费注册 <i class="iconfont"></i></a></div>
+       <div class="publicBtn2 ml2"><a class="btn mr1" href="/register/" rel="nofollow">免费试用 <i class="iconfont"></i></a></div>
        <div class="navMenu"> 
            <span class="line1"></span>
            <span class="line2"></span>

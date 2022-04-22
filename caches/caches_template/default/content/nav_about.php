@@ -21,13 +21,13 @@
         var index = 0;
         if (url.indexOf("culture")> 0 ) {
             index = 1;
-        }else if (url.indexOf("development")> 0 ) {
+        }else if (url.indexOf("history")> 0 ) {
             index = 2;
         }else if (url.indexOf("honor")> 0 ) {
             index = 3;
         }else if (url.indexOf("contact")> 0 ) {
             index = 4;
-        }else if (url.indexOf("join")> 0 ) {
+        }else if (url.indexOf("recruit")> 0 ) {
             index = 5;
         }
         $('.caseKind dd').eq(index).addClass('on').siblings().removeClass('on')

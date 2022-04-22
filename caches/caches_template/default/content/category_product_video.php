@@ -42,11 +42,11 @@
 
     <div class="cons animationDH animateRt">
         <div class="banenrTit autowidth ">
-            <div class="font42 font700 mb3 mt9 colorfff"><?php echo $e6['title'];?></div>
+            <div class="font34 font700 mb3  colorfff"><?php echo $e6['title'];?></div>
             <div class="font18 colorfff height10"><?php echo $e6['description'];?></div>
             <div class="publicBtn">
-                <a class="btn mr1" href="../index/register.html">申请注册 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onClick="shiyong()">免费试用 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
+                <a class="btn btn2" href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank">在线咨询 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -59,10 +59,6 @@
 <?php $n++;}unset($n); ?>
 <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 
-<!--面包屑-->
-<div class="autowidth pb6">
-<?php include template("content","nav_link"); ?>
-</div>
 <!--主体内容-->
 <div class="product">
     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=39fd2a8feab6eb44de60feab26a180ce&action=category&catid=%24CAT%5Bcatid%5D&order=listorder+ASC&return=datas\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {global $datas; $datas = $content_tag->category(array('catid'=>$CAT[catid],'order'=>'listorder ASC','limit'=>'20',));}?>
@@ -72,7 +68,7 @@
         <div class="autowidth animationDH animateBt current">
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=79861ef411152e20638b7f544c1bcb08&action=lists&catid=%24s%5Bcatid%5D&num=1&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'1',));}?>
             <?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
-            <div class="font32 font700 mb6 centers"><?php echo $e6['title'];?></div>
+            <div class="font30 font700 mb6 centers"><?php echo $e6['title'];?></div>
             <?php $n++;}unset($n); ?>
             <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
             <ul class="flex flexbt centers imglistanimate">
@@ -80,16 +76,16 @@
                 <?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
                 <li class=" w31 lib1p2">
                     <div class="imgbox">
-                        <img src="<?php echo $e6['thumb'];?>" alt="<?php echo $e6['title'];?>">
+                        <img class="w6rem" src="<?php echo $e6['thumb'];?>" alt="<?php echo $e6['title'];?>">
                     </div>
-                    <div class="font14 font400 color3F4552 opacity6"><?php echo $e6['description'];?></div>
+                    <div class="font16 font400 color3F4552 opacity6"><?php echo $e6['description'];?></div>
                 </li>
                 <?php $n++;}unset($n); ?>
                 <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
             </ul>
 
             <div class="publicBtn centers mt6 ">
-                <a class="btn mr1" href="">了解更多 <i class="iconfont"></i></a>
+              <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
             </div>
 
         </div>
@@ -102,11 +98,10 @@
     <div class="section_d whatMod bgc">
         <img src="<?php echo $li['thumb'];?>" alt="<?php echo $li['title'];?>">
         <div class="autowidth animationDH animateBt current">
-            <div class="font32 font700 mb3 centers"><?php echo $li['title'];?></div>
-            <div class="font14 font400 mb6 centers"><?php echo $li['description'];?></div>
+            <div class="font30 font700 mb3 centers"><?php echo $li['title'];?></div>
+            <div class="font16 font400 mb6 centers"><?php echo $li['description'];?></div>
             <div class="publicBtn centers">
-                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+               <a class="btn mr1" href="/register/">了解详情 <i class="iconfont"></i></a>
             </div>
         </div>
     </div>
@@ -120,7 +115,7 @@
         <div class="autowidth animationDH animateBt current">
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3060001211dcd7bb6dc8058891d17962&action=lists&catid=%24s%5Bcatid%5D&num=1&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'1',));}?>
             <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>
-            <div class="font32 font700 mb2 centers"><?php echo $li['title'];?></div>
+            <div class="font30 font700 mb2 centers"><?php echo $li['title'];?></div>
 
             <div class="font18 mb6 centers "><?php echo $li['description'];?></div>
             <?php $n++;}unset($n); ?>
@@ -128,10 +123,10 @@
             <ul class="flex flexwp flexbt font18 imgrotatetp2">
                 <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=4684dd90eb5866793415c2fba8fdbcc1&action=lists&catid=%24s%5Bcatid%5D&where=listorder%3E1&num=10&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'where'=>'listorder>1','order'=>'listorder ASC','moreinfo'=>'1','limit'=>'10',));}?>
                 <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>
-                <li class=" w31 lib1p2 bgc01 mb3">
+                <li class=" w31 centers lib1p2 bgc01 mb3">
                     <img class="w6rem" src="<?php echo $li['thumb'];?>" alt="<?php echo $li['title'];?>">
                     <div class="font18 mt2 mb1"><?php echo $li['title'];?></div>
-                    <div class="font14 font400 color3F4552 opacity6"><?php echo $li['description'];?></div>
+                    <div class="font16 font400 color3F4552 opacity6"><?php echo $li['content'];?></div>
                 </li>
                 <?php $n++;}unset($n); ?>
                 <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
@@ -139,8 +134,7 @@
 
 
             <div class="publicBtn centers mt6">
-                <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
             </div>
 
         </div>
@@ -150,31 +144,23 @@
     <?php if($s[listorder]==5) { ?>
     <div class="section_d bgc">
         <div class="autowidth animationDH animateBt current">
-            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=ff2a9700160648b168df813125b3996a&action=lists&catid=%24s%5Bcatid%5D&num=2&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'2',));}?>
-            <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>
-            <?php if($li[listorder]%2==0) { ?>
+            
+            <div class="font30 font700 mb6 centers"><?php echo $s['catname'];?></div>
+            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=c56c90d9ab13437a7e60ed84a21a1563&action=lists&catid=%24s%5Bcatid%5D&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'20',));}?>
+            <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>            
             <div class="imgTextMod">
-            <?php } else { ?>
-                <div class="imgTextMod modStateTwo">
-                <?php } ?>
                 <dl>
                     <dt class="dtImg">
                         <img src="<?php echo $li['thumb'];?>" alt="<?php echo $li['title'];?>">
                     </dt>
-                    <dd class="ddText">
-                        <div class="font24"><?php echo $li['title'];?></div>
-                        <div class="font14 opacity6">
-                            <?php echo $li['description'];?>
-                        </div>
-
-                        <div class="publicBtn centers mt6">
-                            <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                            <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                    <dd class="ddText">                  
+                        <?php echo $li['content'];?>
+                        <div class="publicBtn  mt6">
+                            <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
                         </div>
 
                     </dd>
                 </dl>
-
             </div>
             <?php $n++;}unset($n); ?>
             <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
@@ -185,16 +171,17 @@
     <?php if($s[listorder]==6) { ?>
     <div class="section_d ">
         <div class="autowidth animationDH animateBt current">
+        <div class="font30 font700 mb6 centers"><?php echo $s['catname'];?></div>
 
             <ul class="flex flexbt centers imglistanimate">
                 <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d480f0dc2678576e8d6928ce6060aa6d&action=lists&catid=%24s%5Bcatid%5D&num=3&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'3',));}?>
                 <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>
                 <li class=" w31 lib1p2">
                     <div class="imgbox">
-                        <img src="<?php echo $li['thumb'];?>" alt="<?php echo $li['title'];?>">
+                        <img class="w6rem" src="<?php echo $li['thumb'];?>" alt="<?php echo $li['title'];?>">
                     </div>
-                    <div class="font14 font400 color3F4552 opacity6">
-                        <?php echo $li['description'];?>
+                    <div class="font16 font400 color3F4552 opacity6">
+                        <?php echo $li['content'];?>
                     </div>
                 </li>
                 <?php $n++;}unset($n); ?>
@@ -212,20 +199,19 @@
         <div class="autowidth animationDH animateBt current">
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d480f0dc2678576e8d6928ce6060aa6d&action=lists&catid=%24s%5Bcatid%5D&num=3&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'3',));}?>
             <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>
+            
+            <div class="font30 font700 mb6 centers"><?php echo $li['title'];?></div>
+            
             <div class="imgTextMod">
                 <dl>
                     <dt class="dtImg">
                         <img src="<?php echo $li['thumb'];?>" alt="<?php echo $li['title'];?>">
                     </dt>
                     <dd class="ddText">
-                        <div class="font24"><?php echo $li['title'];?></div>
-                        <div class="font14 opacity6">
-                            <?php echo $li['description'];?>
-                        </div>
+                        <?php echo $li['content'];?>
 
-                        <div class="publicBtn centers mt6">
-                            <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                            <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                        <div class="publicBtn  mt6">
+                            <a class="btn mr1" href="/register/">产品体验 <i class="iconfont"></i></a>
                         </div>
 
                     </dd>
@@ -242,29 +228,24 @@
         <div class="autowidth animationDH animateBt current">
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3060001211dcd7bb6dc8058891d17962&action=lists&catid=%24s%5Bcatid%5D&num=1&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'1',));}?>
             <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>
-            <div class="font32 font700 mb6 centers"><?php echo $li['title'];?></div>
+            <div class="font30 font700 mb6 centers"><?php echo $li['title'];?></div>
             <?php $n++;}unset($n); ?>
             <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=503e0b39dfd7f52422fa18eeeea72f2c&action=lists&catid=%24s%5Bcatid%5D&where=listorder%3E1&num=3&order=listorder+ASC&moreinfo=1&return=list\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $list; $list = $content_tag->lists(array('catid'=>$s[catid],'where'=>'listorder>1','order'=>'listorder ASC','moreinfo'=>'1','limit'=>'3',));}?>
             <?php $n=1;if(is_array($list)) foreach($list AS $li) { ?>
-            <?php if($li[listorder]%2==0) { ?>
-            <div class="imgTextMod modStateTwo">
-                <?php } else { ?>
+
                 <div class="imgTextMod">
-            <?php } ?>
+
                 <dl>
                     <dt class="dtImg">
                         <img src="<?php echo $li['thumb'];?>" alt="<?php echo $li['title'];?>">
                     </dt>
                     <dd class="ddText">
-                        <div class="font24"><?php echo $li['title'];?></div>
-                        <div class="font14 opacity6">
-                            <?php echo $li['description'];?>
-                        </div>
+                    
+                        <?php echo $li['content'];?>
 
-                        <div class="publicBtn centers mt6">
-                            <a class="btn mr1" href="../index/register.html">免费试用 <i class="iconfont"></i></a>
-                            <a class="btn btn2" href="javascript:;" onclick="shiyong()">申请演示 <i class="iconfont"></i></a>
+                        <div class="publicBtn  mt6">
+                            <a class="btn mr1" href="/register/">免费试用 <i class="iconfont"></i></a>
                         </div>
 
                     </dd>
@@ -283,7 +264,7 @@
         <div class="autowidth animationDH animateBt current">
             <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=79861ef411152e20638b7f544c1bcb08&action=lists&catid=%24s%5Bcatid%5D&num=1&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'1',));}?>
             <?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
-            <div class="font32 font700 mb6 centers"><?php echo $e6['title'];?></div>
+            <div class="font30 font700 mb6 centers"><?php echo $e6['title'];?></div>
             <?php $n++;}unset($n); ?>
             <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
             <div class="imgTexIcons">
@@ -318,7 +299,7 @@
                         </dt>
                         <dd class="ddText">
                             <div class="font24 pb1 "><?php echo $e6['description'];?></div>
-                            <div class="font14 opacity6">
+                            <div class="font16 opacity6">
                                 <?php echo $e6['content'];?>
                             </div>
                         </dd>
@@ -330,10 +311,9 @@
             </ul>
 
 
-            <div class="publicBtn centers mt6">
-                <a class="btn mr1" href="">免费试用 <i class="iconfont"></i></a>
-                <a class="btn btn2" href="">申请演示 <i class="iconfont"></i></a>
-            </div>
+            <!--<div class="publicBtn  centers mt6">
+                 <a class="btn mr1" href="/register/">免费试用 <i class="iconfont"></i></a>
+            </div>-->
 
         </div>
     </div>
@@ -344,7 +324,39 @@
     </div>
 
 
-<?php include template("content","pro_nav"); ?>
+    <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=39fd2a8feab6eb44de60feab26a180ce&action=category&catid=%24CAT%5Bcatid%5D&order=listorder+ASC&return=datas\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {global $datas; $datas = $content_tag->category(array('catid'=>$CAT[catid],'order'=>'listorder ASC','limit'=>'20',));}?>
+    <?php $n=1;if(is_array($datas)) foreach($datas AS $s) { ?>
+    <?php if($s[listorder]==10) { ?>
+     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=79861ef411152e20638b7f544c1bcb08&action=lists&catid=%24s%5Bcatid%5D&num=1&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'1',));}?>
+            <?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
+ 		<div class="section_d">
+            <div class="autowidth animationDH animateBt">
+                <div class="font32 font700 mb6 centers">产品推荐</div>
+                <ul class="flex productRecommendIcons">
+               <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=41d25a2fa0dbdec7b0061636724e1122&action=category&catid=76&order=listorder+ASC&return=items\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {global $items; $items = $content_tag->category(array('catid'=>'76','order'=>'listorder ASC','limit'=>'20',));}?>
+                <?php $n=1;if(is_array($items)) foreach($items AS $q) { ?>
+                    <?php if($q[listorder]==$e6[pro_tj]) { ?> 
+                        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=88f9c313de71bc701e4d20dd76a56570&action=lists&catid=%24q%5Bcatid%5D&num=5&order=listorder+ASC&moreinfo=1&return=event8\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event8; $event8 = $content_tag->lists(array('catid'=>$q[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'5',));}?>
+                          <?php $n=1;if(is_array($event8)) foreach($event8 AS $e8) { ?>
+                        <li>
+                             <a href="<?php echo $e8['url'];?>"><img class="wt50" src="<?php echo $e8['thumb'];?>" alt="<?php echo $e8['title'];?>"></a>
+                             <div class="font20 font400 mt2"> <a href="<?php echo $e8['url'];?>"><?php echo $e8['title'];?> </a></div>
+                        </li>
+                          <?php $n++;}unset($n); ?>
+                       <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+                  <?php } ?>
+                <?php $n++;}unset($n); ?>
+                <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+                </ul>
+            </div>
+        </div>
+ </div>
+  <?php $n++;}unset($n); ?>
+         <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+     <?php } ?>
+    <?php $n++;}unset($n); ?>
+  <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+  
 <?php include template("content","footer"); ?>
 <script type="text/javascript" src="<?php echo CSS_PATH;?>web/js/swiper.min.js" ></script>
 <script type="text/javascript" src="<?php echo CSS_PATH;?>web/js/public.js" ></script>

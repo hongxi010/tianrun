@@ -29,8 +29,7 @@
         <?php include template("content","header"); ?>
         <div class="nyBanner flex flexat flexjt" style="background: url(<?php echo CSS_PATH;?>web/images/bannerBg.jpg) no-repeat center">
             <div class="bts colorfff centers">
-                <div class="font40 animationDH animateLt"><div class="bit bit2"><span class="font80"></span>CASE</div></div>
-                <div class="font40 animationDH animateRt"><div class="bxt">客户案例 <span class="font40">TIANRUN</span></div></div>
+                <div class="font32 animationDH animateRt"><div class="bxt">客户案例</div></div>
             </div>
         </div>
          
@@ -49,7 +48,7 @@
 	 	<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?> 
             </dl>
             <div class="publicBtn centers pt3 animationDH animateBt">
-                <a class="btn mr1" href="">申请注册 <i class="iconfont">&#xe6f2;</i></a>
+                <a class="btn mr1" href="">获取案例 <i class="iconfont">&#xe6f2;</i></a>
             </div>
         </div>
         

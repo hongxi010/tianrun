@@ -481,4 +481,6 @@ $LANG['managerpic'] = '页面内容录入';
 $LANG['forminfo'] = '招聘记录';
 $LANG['release_point_management'] = '发布点管理';
 $LANG['tag'] = 'tag标签';
+$LANG['tags'] = 'Tags管理';
+$LANG['tags_cache'] = 'Tags缓存更新';
 ?>

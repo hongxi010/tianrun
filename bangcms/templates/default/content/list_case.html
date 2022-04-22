@@ -32,8 +32,7 @@
         
         <div class="nyBanner flex flexat flexjt" style="background: url({CSS_PATH}web/images/bannerBg.jpg) no-repeat center">
             <div class="bts colorfff centers">
-                <div class="font40 animationDH animateLt"><div class="bit bit2"><span class="font80"></span>CASE</div></div>
-                <div class="font40 animationDH animateRt"><div class="bxt">客户案例 <span class="font40">TIANRUN</span></div></div>
+                <div class="font32 animationDH animateRt"><div class="bxt">客户案例 </div></div>
             </div>
         </div>
 
@@ -48,10 +47,6 @@
                 {php $j++} 
                     <dd {if $s[catid]==$catid} class="on"{/if}>
                        <a class="flex flexat" href="{$s[url]}">
-                           <div class="imgs wt26">
-                               <img class="img1" src="{CSS_PATH}web/images/case{$j}.png" alt="">
-                               <img class="img2" src="{CSS_PATH}web/images/case{$j}f.png" alt="">
-                           </div>
                            <span>{$s[catname]}</span>
                        </a>
                     </dd>
@@ -67,8 +62,8 @@
                                 <a class="scaleImg"  href="{$r[url]}" target="_blank"><img src="{if $r[thumb]}{$r[thumb]}{else}{CSS_PATH}web/images/thumb.jpg{/if}" alt="{$r[title]}" title="{$r[title]}"></a>
                                 <div class="flex1 cots">
                                     <div class="font24 font700 singleTxt"><a href="{$r[url]}" target="_blank">{$r[title]}</a></div>
-                                    <div class="color888 pt1">产品类型：{$CAT[catname]}</div>
-                                    <div class="max3 color888 pt1 pb1"><a href="{$r[url]}" target="_blank">{$r[description]}</a></div>
+                                    <div class="color888 pt1">所属行业：{$CAT[catname]}</div>
+                                    <div class="max3 color888 pt1 pb1"></div>
                                     <div class="pt2"><a class="more" href="{$r[url]}" target="_blank">查看详情 <i class="iconfont">&#xe79c;</i></a></div>
                                 </div>
                             </div>

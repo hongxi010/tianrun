@@ -6,9 +6,19 @@ defined('IN_BANGCMS') or exit('No permission resources.');
 $db = '';
 $db = bc_base::load_model('hits_model');
 if($_GET['modelid'] && $_GET['id']) {
+	$modelid = intval($_GET['modelid']);
+	//tags hits
+	if($modelid==9999){
+		$tags_db = bc_base::load_model('tags_model');
+		$tagid = intval($_GET['id']);
+		$tags = $tags_db->get_one("`tagid` = '$tagid'");
+		if($tags){
+			$tags_db->update(array('hits'=>'+=1','lasthittime'=>time()), array('tagid'=>$tagid));
+		}
+		exit;
+	}
 	$model_arr = array();
 	$model_arr = getcache('model','commons');
-	$modelid = intval($_GET['modelid']);
 	$hitsid = 'c-'.$modelid.'-'.intval($_GET['id']);
 	$r = get_count($hitsid);
 	if(!$r) exit;
@@ -47,7 +57,7 @@ function hits($hitsid) {
 	global $db;
 	$r = $db->get_one(array('hitsid'=>$hitsid));
 	if(!$r) return false;
-    $views = $r['views'] + 1;
+	$views = $r['views'] + 1;
 	$yesterdayviews = (date('Ymd', $r['updatetime']) == date('Ymd', strtotime('-1 day'))) ? $r['dayviews'] : $r['yesterdayviews'];
 	$dayviews = (date('Ymd', $r['updatetime']) == date('Ymd', SYS_TIME)) ? ($r['dayviews'] + 1) : 1;
 	$weekviews = (date('YW', $r['updatetime']) == date('YW', SYS_TIME)) ? ($r['weekviews'] + 1) : 1;

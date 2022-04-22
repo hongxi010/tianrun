@@ -30,7 +30,7 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                            {pc:content action="category" catid="$s[catid]"  order="listorder ASC" return="data2"}
                   			{loop $data2 $r2}
                                <li>
-                                   <div class="tit font20 pb1 font700">{$r2[catname]}</div>
+                                   <div class="tit font20 pb1 font700 colorlogo"><img src="{$r2[image]}" style="width:20px; margin-right:5px"> {$r2[catname]}</div>
                                    <div class="links pt2">
                                    {pc:content action="lists" catid="$r2[catid]" num="10" order="listorder ASC" moreinfo="1"  return="event6"}
 									{loop $event6 $e6}
@@ -59,9 +59,9 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                                 <li>
                                     <div class="tit font20 pb1 font700"><a href="/solution/#{$k}">{$r2[catname]}</a></div>
                                     <div class="links flex flexwp">
-                                     {pc:content action="lists" catid="$r2[catid]" num="10" order="listorder ASC" moreinfo="1"  return="event6"}
+                                     {pc:content action="lists" catid="$r2[catid]" num="30" order="listorder ASC" moreinfo="1"  return="event6"}
 										{loop $event6 $e6}
-                                        <div class="flex flexat flexwp lin"><span class="name"><a href="{$e6[url]}">{$e6[title]}</a></span></div>
+                                        <div class="flex flexat flexwp lin{$k}"><img src="{$e6[pic_001]}" style="width:18px;"><span class="name"><a href="{$e6[url]}">{$e6[title]}</a></span></div>
 										{/loop}
                 					{/pc}
                                     </div>
@@ -76,7 +76,7 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
                <dd><a href="{$s[url]}">{$s[catname]}</a></dd>
                {elseif $s[listorder]==4}   
                <dd class="position2">
-                   <a href="{$s[url]}">{$s[catname]} <i class="iconfont">&#xe610;</i></a>
+                   <a href="/about/">{$s[catname]} <i class="iconfont">&#xe610;</i></a>
                    <div class="slideNav">
                        {pc:content action="lists" catid="$s[catid]" num="10" order="listorder ASC" moreinfo="1"  return="event6"}
 						{loop $event6 $e6}
@@ -104,9 +104,9 @@ $_SESSION["sms_token"] = isset($_SESSION["sms_token"]) ? $_SESSION["sms_token"] 
        </div>
        <a href="tel:400-686-9091" class="flex flexat zixun colorfff">
            <i class="iconfont pr1">&#xe744;</i>
-           <span href="">咨询：400-686-9091</span>
+           <span href="">咨询：1010 9099</span>
        </a>
-       <div class="publicBtn2 ml2"><a class="btn mr1" href="/register/" rel="nofollow">免费注册 <i class="iconfont"></i></a></div>
+       <div class="publicBtn2 ml2"><a class="btn mr1" href="/register/" rel="nofollow">免费试用 <i class="iconfont"></i></a></div>
        <div class="navMenu"> 
            <span class="line1"></span>
            <span class="line2"></span>

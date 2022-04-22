@@ -24,7 +24,7 @@
 .pages ul{display: inline-block;vertical-align: top;}
 .pages ul li{display: inline-block;vertical-align: top;width: 38px;line-height: 38px;border: 1px solid #ddd;background: #fff;font-size: 16px;margin: 3px;}
 .pages ul .pagenumact{background: #01AF8A;border-color: #0092db;color: #fff;}
-.pages a{display: block;}
+.pages a{}
 
 .bgF6F7F8{background: #F6F7F8;}
 .useprodDL dd{text-align: center;flex: 1;border-right: 1px solid #eee;}
@@ -79,13 +79,16 @@
 .tjFlex{text-align: center;width: 104%;}
 .tjFlex dd{width: 16%;margin: 0 4% 4% 0;cursor: pointer;}
 .autoLeft{top: .25rem;width: 70%;text-align: left;}
-.autoRight{position: absolute;left: 100%;padding-left: .6rem;top: .25rem;width: 3rem;text-align: left;min-width: 260px;}
+.autoRight{position: absolute;right: 0;top: .25rem;width: 3rem;text-align: left;width: 300px;}
+.autoRight.on{position: fixed;top: 70px;left: 50%;margin-left: 300px;}
+.autoRight.bot{position: absolute;top: auto;left: 50%;bottom: 0;}
+
 .detailsTxt {text-align: justify;}
 .detailsTxt p img{ padding-top:20px; padding-bottom:20px;}
 .detailsTxt p { padding-top:10px; padding-bottom:10px; line-height: 2;}
 .hots{background: #F6F7F8;padding: .2rem;}
 .hotLink a{display: inline-block;background: #fff;margin: 0 0.05rem 0.15rem 0;padding: 2px 0.06rem;border-radius: 0.03rem;}
-.hotLists>a{display: block;padding: .2rem 0;border-bottom: 2px dashed #eee;}
+.hotLists>a{display: block; line-height:2.5; border-bottom: 2px dashed #eee;}
 .autoMain{width: 55%;}
 .wt40{width: .4rem;}
 .helpTit dd{flex: 1;-webkit-flex:1;text-align: center;padding: .3rem 0;}
@@ -107,20 +110,52 @@
 .twoLevel.on .jt,.leftNav dd.on .oneLevel .jt{transform: rotate(180deg);-webkit-transform: rotate(180deg);}
 
 .zcLeft{width: 50%;margin-right: 5%;}
-.zhuceForm{padding: .6rem;background: #fff;box-shadow: 0 0 15px -2px rgba(0,0,0,.1);}
+.zhuceForm{padding: .5rem;background: #fff;box-shadow: 0 0 15px -2px rgba(0,0,0,.1);}
 input.getCode{position: absolute;right: 0;top: 0;bottom: 0;background: #01AF8A;color: #fff;padding: 0 .4rem;cursor: pointer;}
 .getCode:disabled{background: #888 !important;cursor: default;}
 .checkbox{width: 14px;height: 14px;border: 1px solid #ddd;margin-right: 5px;display: inline-block;}
 .checkList .ck{cursor: pointer;}
 .checkList .ck.on .checkbox{background: #01AF8A;border-color: #01AF8A;}
-.chooseck .ck{min-width: 31.33%;margin-right: 2%;margin-top: .1rem;}
+.chooseck .ck{min-width: 22.33%;margin-right: 2%;margin-top: .1rem;}
 .inputTxt{border: 1px solid #ededed;display: block;padding: 0 .1rem;}
 .inputTxt input{display: block;width: 100%;padding: .1rem 0;}
 
+    .newTypeOne li {
+        position: relative;
+		overflow: hidden;
+    }
 
+    .newTypeOne li .mask {
+        display: none;
+        z-index: 10;
+        background: #01AF8A;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: .2rem;
+        box-sizing: border-box;
+        border-radius: 0.06rem;
+        overflow: hidden;
+    }
+	.newTypeOne li .mask div p {
+        line-height: 1.8;
+    }
+
+    .newTypeOne li:hover .mask {
+        display: block;
+    }
 
 @media only screen and (max-width:1400px) {
     .autoMain{margin: 0 0 0 3%; width: calc(100% - 360px);}
+}
+@media only screen and (max-width:1300px) {
+    .autoRight{width: 4.5rem;}
+    .autoRight.on{left: auto;right: 3%;margin: 0;}
+    .autoRight.bot{right: 0;}
 }
 @media only screen and (min-width:1100px) {
     .getCode,.newsList dd .more,.useprodDL dd img,.hangyeDL dd,.hangyeDL dd img,.caseFlex dd>a::before,.caseFlex dd>a::after,.honorFlex dd .blockDiv,.developDL dd .point,.developDL dd .point *{transition: .5s;-webkit-transition: .5s;}
@@ -141,7 +176,7 @@ input.getCode{position: absolute;right: 0;top: 0;bottom: 0;background: #01AF8A;c
     .caseKind{width: auto;margin: 0;white-space: nowrap;overflow-x: auto;}
     .caseKind dd{display: inline-block;}
     .autoMain{width: auto;margin: 0 2.5%;}
-    .autoRight{position: static;width: auto;padding: 0;}
+    .autoRight{position: static !important;width: auto;padding: 0;}
     .tjFlex{width: 102%;}
     .tjFlex dd{width: 18%;margin: 0 2% 2% 0;}
     .leftNav{width: 120px;margin-right: .2rem;}
@@ -163,6 +198,14 @@ input.getCode{position: absolute;right: 0;top: 0;bottom: 0;background: #01AF8A;c
     .newsList dd .scaleImg{display: none;}
     .helpTit dd .font14{display: none;}
     .autoLeft{top: .25rem;width: 100%;text-align: left;}
+	
+	        .newTypeOne li .mask {
+            display: block;
+            position: static;
+        }
+        .newTypeOne li .mask div:nth-child(1) {
+            display: none;
+        }
 }
 
 

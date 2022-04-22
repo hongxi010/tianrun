@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+	<meta name="keywords" content="{$SEO['keyword']}">
+	<meta name="description" content="{$SEO['description']}">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link href="{CSS_PATH}web/images/favicon.ico" type="image/x-icon" rel="shortcut icon"> 
+	<meta name="format-detection" content="telephone=yes" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/reset.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/swiper.min.css" />
+	<link rel="stylesheet" href="{CSS_PATH}web/css/style.css" />
+	<script src="{CSS_PATH}web/js/jquery-1.9.1.min.js" ></script>
+	<script src="{CSS_PATH}web/js/include.js"></script>
+	<body>
+		{template "content","header"}
+		<div class="pageMain">
+			<div class="autowidth">
+				<div class="newsList paddingBot5">
+                
+					<div class="list" id="list{$s[listorder]}">
+						<a href="{$url}" class="pubicTit flex flexbt flexat paddingTop3 paddingBot3" title="总共有 {$total} 条记录">
+							<div class="flex_1 name flex flexat">
+								<img src="{CSS_PATH}web/images/a2.png"/>
+								<p class="font24 colorlogo lt10 rt20">Tags</p>
+								<img src="{CSS_PATH}web/images/a3.png"/>
+							</div>		
+						</a>                        
+						<div class="newsList flex flexwp" id="news_list" data-page="{php echo max($page+1,2)}">
+                        	<dd>
+                        	<div class="flag font14 mb40" style="overflow:visible;">
+{loop $tagdata $r}
+{if $r['tag']}
+								<a class="a_tag" href="{get_tagurl($r['tagid'])}" title="{$r['tag']}"><span>{$r['tag']}<i>({$r['usetimes']})</i></span></a>
+{/if}
+{/loop}
+							</div>
+                            </dd>
+						</div>
+                        <div class="pagenavi">{$pages}</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+{template "content","footer"}
+<script type="text/javascript" src="{CSS_PATH}web/js/public.js" ></script>
+	</body>
+</html>

@@ -8,7 +8,7 @@
                 <dd>
                     <div class="font18"><a href=""><?php echo $s['catname'];?></a></div>
                     <div class="opacity8 font14">
-                  <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b492c603290fd6de2c71027b7a82266e&action=lists&catid=%24s%5Bcatid%5D&num=10&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'10',));}?>
+                  <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=8994d71d439bf09884e986f3dbbfc8a5&action=lists&catid=%24s%5Bcatid%5D&num=30&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>$s[catid],'order'=>'listorder ASC','moreinfo'=>'1','limit'=>'30',));}?>
 					<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
                         <p><a href="<?php echo $e6['url'];?>"><?php echo $e6['title'];?></a></p>
                   <?php $n++;}unset($n); ?>
@@ -21,14 +21,14 @@
           <div class="opacity8 font14 mt5 flex youqing">
             友情链接：
             <div class="flex1 yqlinks">
-            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=66bcd91b6ce49cd52c423d555be5ebc8&action=lists&catid=281&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>'281','order'=>'listorder ASC','moreinfo'=>'1','limit'=>'20',));}?>
+            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=9253e69909c34fcb697288b61dbba2c1&action=lists&catid=281&num=200&order=listorder+ASC&moreinfo=1&return=event6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {global $event6; $event6 = $content_tag->lists(array('catid'=>'281','order'=>'listorder ASC','moreinfo'=>'1','limit'=>'200',));}?>
 				<?php $n=1;if(is_array($event6)) foreach($event6 AS $e6) { ?>
-                <a href="<?php echo $e6['url'];?>" target="_blank"><?php echo $e6['title'];?></a>-
+                <a href="<?php echo $e6['url'];?>" target="_blank"><?php echo $e6['title'];?></a> 
                 <?php $n++;}unset($n); ?>
 			   <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 
             </div>
-            <a class="lookMore" href="javascript:;" rel="nofollow"><span>查看更多</span> <i class="iconfont">&#xe610;</i></a>
+            <a class="lookMore" href="javascript:;" rel="nofollow"><span>更多</span> <i class="iconfont">&#xe610;</i></a>
           </div>
       </div>
       <div class="ewmCode">
@@ -63,8 +63,8 @@
 
            </div>
            <div class="flex flexBtn pt3 mpt2">
-               <a class="btn" href="../index/register.html"><i class="iconfont">&#xe602;</i> 免费试用</a>
-               <a class="btn" href=""><i class="iconfont">&#xe630;</i> 在线咨询</a>
+               <a class="btn" href="/register/"><i class="iconfont">&#xe602;</i> 产品体验</a>
+               <a class="btn" href="https://webchat-bj.clink.cn/chat.html?accessId=29bc0a00-c025-45aa-8590-1073b0448c5b&language=zh_CN" target="_blank"><i class="iconfont">&#xe630;</i> 在线咨询</a>
            </div>
       </div>
   </div>
@@ -90,16 +90,16 @@
 <div class="fixedNav colorlogo">
     <dl>
         <dd>
-            <a href="tel:4000-888-888">
+            <a href="tel:400-686-9091">
                 <i class="iconfont font30">&#xe608;</i>
                 <div class="mfont12">咨询热线</div>
             </a>
             <div class="showNav">
-                <div class="font30 text font700">4000-888-888</div>
+                <div class="font18 text">1010 9099</div>
             </div>
         </dd>
         <dd>
-            <a href="">
+           <a href="javascript:;" onclick="ClinkChatWeb.openSessionWindow()">
                 <i class="iconfont font30">&#xe61d;</i>
                 <div class="mfont12">在线咨询</div>
             </a>
@@ -114,7 +114,7 @@
             </div>
         </dd>
         <dd>
-            <a href="../index/register.html">
+            <a href="/register/">
                 <i class="iconfont font30">&#xe680;</i>
                 <div class="mfont12">免费试用</div>
             </a>
@@ -145,3 +145,4 @@
         })
     })
 </script>
+<script>  (function(win, doc, src, opt) {    win[opt] = win[opt] || function () {    win[opt].options = arguments[0]};    var script = doc.createElement("script");    script.async = 1;    script.src = src;    doc.body.appendChild(script);  })(window, document, "https://webchat-bj.clink.cn/webchat.js?v="+Date.now(), "clinkWebchatOptions");    clinkWebchatOptions({      accessId: "29bc0a00-c025-45aa-8590-1073b0448c5b",      language: "zh_CN"    });</script>

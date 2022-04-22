@@ -52,6 +52,7 @@ return array(
 'phpsso_version' => '1', //phpsso版本
 
 'html_root' => '',//生成静态文件路径
+'tag_root' => '/tags',//生成Tag静态文件路径 以/开始、末尾不要加/
 'safe_card'=>'1',//是否启用口令卡
 
 'connect_enable' => '1',	//是否开启外部通行证

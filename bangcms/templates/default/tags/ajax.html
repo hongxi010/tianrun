@@ -1,0 +1,38 @@
+{php header('Content-type:text/json');}
+{php $data=array();}
+{loop $tagdata $r}
+{php $v = get_artinfo($r[catid],$r[contentid]);}
+{php if($r[url]!=$v['url']) $r[url] = $v['url'];}
+{php $r[title] = $v['title'] ? $v['title'] : $r['title'];}
+<?php
+		$r['thumb'] = $r['thumb'] ? $r['thumb'] : $v['thumb'];
+		if($r['thumb']){
+		    $r['thumb'] = thumb($r['thumb'],564,316);
+		}
+        $r['author'] = $v[author];
+        $copyfrom = array();
+        $vs = get_artinfo_data($r[catid],$r[contentid]);
+        $copyfrom = explode('|',$vs[copyfrom]);
+        if(!empty($copyfrom[0])){
+            $r['copyfrom'] = '来源: '.$copyfrom[0];
+        }else{
+        	$r['copyfrom'] = '';
+        }
+        $keywords = explode(' ',$v[keywords]);
+        if(!empty($keywords)){
+        	$r['keywords'] = '';
+            foreach($keywords as $keyword){
+                if($keyword){
+                    $r['keywords'] .= '<span><a href="'.get_tagurl_by_name($keyword,$type='0').'" rel="tag">'.$keyword.'</a></span>';
+                }
+            }
+        }else{
+        	$r['keywords'] = '';
+        }
+?>
+{php $r['title'] = str_replace($tag, '<font color=red>'.$tag.'</font>', $r['title']);}
+{php $r['addtime'] = $r['inputtime'] ? $r['inputtime'] : $v['inputtime'];}
+{php $r['description'] = str_replace($tag, '<font color=red>'.$tag.'</font>', $v['description']);}
+{php $data[$v['id']] = $r;}
+{/loop}
+{php echo json_encode($data);}

@@ -2,7 +2,7 @@
 return array (
   'catid' => 
   array (
-    'fieldid' => '666',
+    'fieldid' => '552',
     'modelid' => '37',
     'siteid' => '1',
     'field' => 'catid',
@@ -35,21 +35,19 @@ return array (
   ),
   'title' => 
   array (
-    'fieldid' => '668',
+    'fieldid' => '554',
     'modelid' => '37',
     'siteid' => '1',
     'field' => 'title',
     'name' => '标题',
-    'tips' => '打|线回车',
+    'tips' => '',
     'css' => 'inputtitle',
-    'minlength' => '0',
+    'minlength' => '1',
     'maxlength' => '400',
     'pattern' => '',
     'errortips' => '请输入标题',
     'formtype' => 'title',
-    'setting' => 'array (
-  \'defaultvalue\' => \'\',
-)',
+    'setting' => '',
     'formattribute' => '',
     'unsetgroupids' => '',
     'unsetroleids' => '',
@@ -64,11 +62,81 @@ return array (
     'listorder' => '4',
     'disabled' => '0',
     'isomnipotent' => '0',
-    'defaultvalue' => '',
+  ),
+  'pro_tj' => 
+  array (
+    'fieldid' => '573',
+    'modelid' => '37',
+    'siteid' => '1',
+    'field' => 'pro_tj',
+    'name' => '产品推荐',
+    'tips' => '',
+    'css' => '',
+    'minlength' => '0',
+    'maxlength' => '0',
+    'pattern' => '',
+    'errortips' => '',
+    'formtype' => 'box',
+    'setting' => 'array (
+  \'options\' => \'推荐产品一|1
+推荐产品二|2
+推荐产品三|3
+推荐产品四|4
+推荐产品五|5
+推荐产品六|6
+推荐产品七|7
+推荐产品八|8
+推荐产品九|9
+推荐产品十|10\',
+  \'boxtype\' => \'select\',
+  \'fieldtype\' => \'varchar\',
+  \'minnumber\' => \'1\',
+  \'width\' => \'80\',
+  \'size\' => \'1\',
+  \'defaultvalue\' => \'1\',
+  \'outputtype\' => \'1\',
+  \'filtertype\' => \'0\',
+  \'listshow\' => \'0\',
+  \'listfilter\' => \'0\',
+)',
+    'formattribute' => '',
+    'unsetgroupids' => '',
+    'unsetroleids' => '',
+    'iscore' => '0',
+    'issystem' => '0',
+    'isunique' => '0',
+    'isbase' => '1',
+    'issearch' => '0',
+    'isadd' => '1',
+    'isfulltext' => '0',
+    'isposition' => '0',
+    'listorder' => '5',
+    'disabled' => '0',
+    'isomnipotent' => '0',
+    'options' => '推荐产品一|1
+推荐产品二|2
+推荐产品三|3
+推荐产品四|4
+推荐产品五|5
+推荐产品六|6
+推荐产品七|7
+推荐产品八|8
+推荐产品九|9
+推荐产品十|10',
+    'boxtype' => 'select',
+    'fieldtype' => 'varchar',
+    'minnumber' => '1',
+    'width' => '80',
+    'size' => '1',
+    'defaultvalue' => '1',
+    'outputtype' => '1',
+    'filtertype' => '0',
+    'listshow' => '0',
+    'listfilter' => '0',
   ),
   'updatetime' => 
   array (
-    'fieldid' => '671',
+    'fieldid' => '557',
     'modelid' => '37',
     'siteid' => '1',
     'field' => 'updatetime',
@@ -105,58 +173,9 @@ return array (
     'defaulttype' => '1',
     'defaultvalue' => '',
   ),
-  'thumb' => 
-  array (
-    'fieldid' => '673',
-    'modelid' => '37',
-    'siteid' => '1',
-    'field' => 'thumb',
-    'name' => '缩略图',
-    'tips' => '',
-    'css' => '',
-    'minlength' => '0',
-    'maxlength' => '100',
-    'pattern' => '',
-    'errortips' => '',
-    'formtype' => 'image',
-    'setting' => 'array (
-  \'size\' => \'50\',
-  \'defaultvalue\' => \'\',
-  \'show_type\' => \'1\',
-  \'upload_maxsize\' => \'1024\',
-  \'upload_allowext\' => \'jpg|jpeg|gif|png|bmp\',
-  \'watermark\' => \'0\',
-  \'isselectimage\' => \'1\',
-  \'images_width\' => \'\',
-  \'images_height\' => \'\',
-)',
-    'formattribute' => '',
-    'unsetgroupids' => '',
-    'unsetroleids' => '',
-    'iscore' => '0',
-    'issystem' => '1',
-    'isunique' => '0',
-    'isbase' => '1',
-    'issearch' => '0',
-    'isadd' => '1',
-    'isfulltext' => '0',
-    'isposition' => '1',
-    'listorder' => '14',
-    'disabled' => '0',
-    'isomnipotent' => '0',
-    'size' => '50',
-    'defaultvalue' => '',
-    'show_type' => '1',
-    'upload_maxsize' => '1024',
-    'upload_allowext' => 'jpg|jpeg|gif|png|bmp',
-    'watermark' => '0',
-    'isselectimage' => '1',
-    'images_width' => '',
-    'images_height' => '',
-  ),
   'inputtime' => 
   array (
-    'fieldid' => '676',
+    'fieldid' => '562',
     'modelid' => '37',
     'siteid' => '1',
     'field' => 'inputtime',
@@ -191,44 +210,9 @@ return array (
     'format' => 'Y-m-d H:i:s',
     'defaulttype' => '0',
   ),
-  'posids' => 
-  array (
-    'fieldid' => '677',
-    'modelid' => '37',
-    'siteid' => '1',
-    'field' => 'posids',
-    'name' => '推荐位',
-    'tips' => '',
-    'css' => '',
-    'minlength' => '0',
-    'maxlength' => '0',
-    'pattern' => '',
-    'errortips' => '',
-    'formtype' => 'posid',
-    'setting' => 'array (
-  \'cols\' => \'4\',
-  \'width\' => \'125\',
-)',
-    'formattribute' => '',
-    'unsetgroupids' => '',
-    'unsetroleids' => '',
-    'iscore' => '0',
-    'issystem' => '1',
-    'isunique' => '0',
-    'isbase' => '1',
-    'issearch' => '0',
-    'isadd' => '0',
-    'isfulltext' => '0',
-    'isposition' => '0',
-    'listorder' => '18',
-    'disabled' => '0',
-    'isomnipotent' => '0',
-    'cols' => '4',
-    'width' => '125',
-  ),
   'url' => 
   array (
-    'fieldid' => '679',
+    'fieldid' => '565',
     'modelid' => '37',
     'siteid' => '1',
     'field' => 'url',
@@ -258,7 +242,7 @@ return array (
   ),
   'listorder' => 
   array (
-    'fieldid' => '680',
+    'fieldid' => '566',
     'modelid' => '37',
     'siteid' => '1',
     'field' => 'listorder',
@@ -288,7 +272,7 @@ return array (
   ),
   'status' => 
   array (
-    'fieldid' => '683',
+    'fieldid' => '569',
     'modelid' => '37',
     'siteid' => '1',
     'field' => 'status',

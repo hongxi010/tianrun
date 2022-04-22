@@ -50,7 +50,7 @@ $(function(){
     
 })
 window.onload = function(){
-    $('.headNav dd').eq(index).addClass('on').siblings().removeClass('on')
+    /*$('.headNav dd').eq(index).addClass('on').siblings().removeClass('on')*/
 	/*点击回顶部*/
 	$(".scrollTos").click(function(){
       	$('body,html').animate({ scrollTop: 0 }, 500);
